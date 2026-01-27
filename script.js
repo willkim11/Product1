@@ -1,13 +1,4 @@
-/* =========================================
-   1. GLOBAL & TAB MANAGEMENT (SPA)
-   ========================================= */
-document.addEventListener('DOMContentLoaded', () => {
-    initTabs();
-    initLotto();
-    initMbti();
-    initReactionGame();
-    initDarkMode();
-});
+
 
 function getLang() {
     return document.documentElement.lang === 'en' ? 'en' : 'ko';
