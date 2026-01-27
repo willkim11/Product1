@@ -218,3 +218,13 @@ html.dark .tarot-back {
 html.dark .tarot-back img {
     opacity: 0.9;
 }
+
+/* --- Mobile Nav Adjustments --- */
+@media (max-width: 768px) {
+    .nav-btn {
+        font-size: 0.8rem !important; /* Smaller text for mobile */
+        white-space: nowrap;          /* Prevent line breaks */
+        padding-left: 0.25rem !important;  /* Reduce padding */
+        padding-right: 0.25rem !important;
+    }
+}
