@@ -63,6 +63,9 @@
                 <button id="btn-ability" class="flex-1 py-3 hover:bg-gray-50 dark:hover:bg-slate-700 nav-btn transition-colors">
                     ⚡ 반응속도
                 </button>
+                <button id="btn-tarot" class="flex-1 py-3 hover:bg-gray-50 dark:hover:bg-slate-700 nav-btn transition-colors">
+                    🔮 타로
+                </button>
             </nav>
         </div>
     </header>
@@ -204,6 +207,57 @@
                 </p>
                 <p>
                     데일리 픽 랩의 알고리즘은 각 MBTI의 인지 기능을 분석하여, 당신이 가장 만족할 만한 '최적의 선택'을 제안합니다. 오늘만큼은 고민하는 시간을 아껴, 그 에너지를 더 소중한 곳에 써보세요.
+                </p>
+            </article>
+        </section>
+
+        <!-- ==================== TAROT SECTION ==================== -->
+        <section id="tarot-section" class="tab-content">
+            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 mb-8 border border-gray-100 dark:border-slate-700 transition-colors">
+                <h2 class="text-lg font-bold mb-6 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
+                    <span class="bg-indigo-100 dark:bg-indigo-900/30 p-1 rounded mr-2">🔮</span> 오늘의 타로 운세
+                </h2>
+
+                <!-- Card Scene -->
+                <div class="mb-8 flex flex-col items-center">
+                    <div class="tarot-card-container mb-6" id="tarot-card">
+                        <div class="tarot-card-inner">
+                            <div class="tarot-front">
+                                <!-- Back design -->
+                            </div>
+                            <div class="tarot-back rounded-xl overflow-hidden shadow-inner bg-slate-100 dark:bg-slate-900">
+                                <img id="tarot-image" src="" alt="Tarot Card" class="w-full h-4/5 object-cover">
+                                <div class="h-1/5 flex items-center justify-center bg-white dark:bg-slate-800 p-2 border-t dark:border-slate-700">
+                                    <span id="tarot-name" class="font-bold text-sm text-slate-800 dark:text-slate-200">The Fool</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="tarot-draw-btn" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-indigo-200 dark:shadow-none transition active:scale-95">
+                        운명의 카드 뽑기 ✨
+                    </button>
+                </div>
+
+                <!-- Result Area -->
+                <div id="tarot-result" class="bg-indigo-50 dark:bg-indigo-900/20 rounded-xl p-5 border border-indigo-100 dark:border-indigo-800 hidden">
+                    <div class="text-center mb-3">
+                        <span id="tarot-orientation" class="text-xs font-bold px-2 py-1 rounded bg-white dark:bg-slate-700 text-indigo-600 dark:text-indigo-300 shadow-sm">
+                            정방향
+                        </span>
+                    </div>
+                    <p id="tarot-desc" class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed whitespace-pre-line"></p>
+                </div>
+            </div>
+
+            <!-- Content for SEO -->
+            <article class="prose prose-sm prose-slate dark:prose-invert bg-white dark:bg-slate-800 p-5 rounded-xl border border-gray-100 dark:border-slate-700 transition-colors">
+                <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">🃏 타로 카드의 지혜</h3>
+                <p>
+                    타로는 단순한 점술이 아니라, 우리의 무의식을 투영하는 거울입니다. 22장의 메이저 아르카나는 인생의 여정(The Fool's Journey)을 상징하며, 우리가 마주한 상황을 새로운 관점에서 바라보게 도와줍니다.
+                </p>
+                <p>
+                    오늘 뽑은 카드가 당신에게 어떤 메시지를 전하고 있나요? 우연처럼 보이는 이 선택이, 어쩌면 당신이 찾던 답일지도 모릅니다.
                 </p>
             </article>
         </section>

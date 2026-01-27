@@ -158,8 +158,45 @@ function initDarkMode() {
 }
 
 
+const TAROT_DATA = [
+    { id: 0, image: "https://upload.wikimedia.org/wikipedia/commons/9/90/RWS_Tarot_00_Fool.jpg", name_ko: "0. 광대 (The Fool)", name_en: "0. The Fool", desc_ko: { upright: "새로운 시작, 모험, 순수함, 자유로운 영혼\n\n두려움 없이 새로운 여정을 떠날 준비가 되셨나요? 무한한 가능성이 당신 앞에 열려 있습니다.", reversed: "경솔함, 무모함, 위험 감수\n\n준비 없는 시작은 위험할 수 있습니다. 발밑의 절벽을 조심하세요." }, desc_en: { upright: "New beginnings, adventure, innocence, free spirit\n\nAre you ready to embark on a new journey without fear? Infinite possibilities lie before you.", reversed: "Recklessness, risk-taking, inconsideration\n\nAn unprepared start can be dangerous. Watch out for the cliff beneath your feet." } },
+    { id: 1, image: "https://upload.wikimedia.org/wikipedia/commons/d/de/RWS_Tarot_01_Magician.jpg", name_ko: "1. 마법사 (The Magician)", name_en: "1. The Magician", desc_ko: { upright: "창조력, 의지력, 능수능란함\n\n당신은 목표를 이룰 모든 도구를 가지고 있습니다. 이제 행동으로 옮길 때입니다.", reversed: "재능의 낭비, 속임수, 소통 부재\n\n자신의 능력을 믿지 못하거나, 잘못된 방향으로 쓰고 있지는 않나요?" }, desc_en: { upright: "Creativity, willpower, skill\n\nYou have all the tools to achieve your goals. It's time to take action.", reversed: "Wasted talent, deception, lack of communication\n\nAre you doubting your abilities or using them in the wrong direction?" } },
+    { id: 2, image: "https://upload.wikimedia.org/wikipedia/commons/8/88/RWS_Tarot_02_High_Priestess.jpg", name_ko: "2. 여사제 (The High Priestess)", name_en: "2. The High Priestess", desc_ko: { upright: "직관, 무의식, 지혜, 신비\n\n당신의 내면의 목소리에 귀를 기울이세요. 답은 이미 당신 안에 있습니다.", reversed: "비밀, 억압된 감정, 얕은 지식\n\n자신의 감정을 무시하지 마세요. 드러나지 않은 진실이 있을 수 있습니다." }, desc_en: { upright: "Intuition, unconscious, wisdom, mystery\n\nListen to your inner voice. The answer is already within you.", reversed: "Secrets, repressed emotions, superficial knowledge\n\nDo not ignore your emotions. There may be hidden truths." } },
+    { id: 3, image: "https://upload.wikimedia.org/wikipedia/commons/d/d2/RWS_Tarot_03_Empress.jpg", name_ko: "3. 여황제 (The Empress)", name_en: "3. The Empress", desc_ko: { upright: "풍요, 모성애, 자연, 예술\n\n창조적인 에너지가 넘치는 시기입니다. 당신의 아이디어를 현실로 풍성하게 피워내세요.", reversed: "의존, 사치, 게으름\n\n편안함에 안주하여 성장을 멈추지 않도록 주의하세요." }, desc_en: { upright: "Abundance, maternal love, nature, art\n\nA time full of creative energy. Blossom your ideas into reality abundantly.", reversed: "Dependence, luxury, laziness\n\nBe careful not to stop growing by settling for comfort." } },
+    { id: 4, image: "https://upload.wikimedia.org/wikipedia/commons/c/c3/RWS_Tarot_04_Emperor.jpg", name_ko: "4. 황제 (The Emperor)", name_en: "4. The Emperor", desc_ko: { upright: "권위, 구조, 통제, 아버지\n\n확실한 계획과 규율이 성공을 가져옵니다. 상황을 주도적으로 이끌어 가세요.", reversed: "지배, 고집, 규율 부족\n\n너무 권위적이거나 반대로 통제력을 잃지 않았는지 점검해보세요." }, desc_en: { upright: "Authority, structure, control, father figure\n\nClear plans and discipline bring success. Lead the situation proactively.", reversed: "Domination, stubbornness, lack of discipline\n\nCheck if you are being too authoritative or, conversely, losing control." } },
+    { id: 5, image: "https://upload.wikimedia.org/wikipedia/commons/8/8d/RWS_Tarot_05_Hierophant.jpg", name_ko: "5. 교황 (The Hierophant)", name_en: "5. The Hierophant", desc_ko: { upright: "전통, 가르침, 신념, 사회적 규범\n\n전통적인 방식이나 멘토의 조언을 따르는 것이 도움이 될 수 있습니다.", reversed: "반항, 독창성, 새로운 믿음\n\n기존의 틀을 깨고 자신만의 길을 찾아야 할 때일지도 모릅니다." }, desc_en: { upright: "Tradition, teaching, belief, social norms\n\nFollowing traditional ways or advice from a mentor might be helpful.", reversed: "Rebellion, distinctiveness, new beliefs\n\nIt might be time to break the mold and find your own path." } },
+    { id: 6, image: "https://upload.wikimedia.org/wikipedia/commons/3/3a/RWS_Tarot_06_Lovers.jpg", name_ko: "6. 연인 (The Lovers)", name_en: "6. The Lovers", desc_ko: { upright: "사랑, 조화, 선택, 가치관의 일치\n\n중요한 선택의 기로에 서 있습니다. 당신의 마음이 진정으로 원하는 것을 따르세요.", reversed: "불화, 잘못된 선택, 유혹\n\n순간의 감정에 휩쓸려 잘못된 결정을 내리지 않도록 주의하세요." }, desc_en: { upright: "Love, harmony, choices, alignment of values\n\nYou are at a crossroads of an important choice. Follow what your heart truly desires.", reversed: "Disharmony, wrong choices, temptation\n\nBe careful not to make wrong decisions swept by momentary emotions." } },
+    { id: 7, image: "https://upload.wikimedia.org/wikipedia/commons/9/9b/RWS_Tarot_07_Chariot.jpg", name_ko: "7. 전차 (The Chariot)", name_en: "7. The Chariot", desc_ko: { upright: "성공, 의지력, 행동, 승리\n\n망설이지 말고 목표를 향해 돌진하세요. 장애물을 극복하고 승리할 것입니다.", reversed: "통제 불능, 패배, 방향 상실\n\n너무 급하게 서두르지 마세요. 속도를 조절하고 방향을 재설정해야 합니다." }, desc_en: { upright: "Success, willpower, action, victory\n\nDo not hesitate and charge towards your goal. You will overcome obstacles and win.", reversed: "Lack of control, defeat, loss of direction\n\nDo not rush too much. You need to adjust your speed and reset your direction." } },
+    { id: 8, image: "https://upload.wikimedia.org/wikipedia/commons/f/f5/RWS_Tarot_08_Strength.jpg", name_ko: "8. 힘 (Strength)", name_en: "8. Strength", desc_ko: { upright: "용기, 인내, 동정심, 내면의 힘\n\n부드러움이 강함을 이깁니다. 인내심을 가지고 상황을 다스리세요.", reversed: "자기 의심, 유약함, 본능에 굴복\n\n자신감을 잃지 마세요. 당신은 생각보다 강한 사람입니다." }, desc_en: { upright: "Courage, patience, compassion, inner strength\n\nSoftness overcomes strength. Control the situation with patience.", reversed: "Self-doubt, weakness, succumbing to instincts\n\nDo not lose confidence. You are stronger than you think." } },
+    { id: 9, image: "https://upload.wikimedia.org/wikipedia/commons/4/4d/RWS_Tarot_09_Hermit.jpg", name_ko: "9. 은둔자 (The Hermit)", name_en: "9. The Hermit", desc_ko: { upright: "성찰, 고독, 내면의 탐구, 인도\n\n잠시 멈춰 서서 자신을 돌아보는 시간이 필요합니다. 답은 내 안에 있습니다.", reversed: "고립, 외로움, 현실 도피\n\n너무 세상과 담을 쌓지 마세요. 다른 사람들의 도움을 받아들이는 것도 용기입니다." }, desc_en: { upright: "Reflection, solitude, inner exploration, guidance\n\nYou need time to pause and reflect on yourself. The answer is within.", reversed: "Isolation, loneliness, escapism\n\nDo not build a wall against the world perfectly. Accepting help from others is also courage." } },
+    { id: 10, image: "https://upload.wikimedia.org/wikipedia/commons/3/3c/RWS_Tarot_10_Wheel_of_Fortune.jpg", name_ko: "10. 운명의 수레바퀴 (Wheel of Fortune)", name_en: "10. Wheel of Fortune", desc_ko: { upright: "변화, 행운, 운명적인 전환점\n\n삶의 흐름이 바뀌고 있습니다. 다가오는 변화를 긍정적으로 받아들이세요.", reversed: "불운, 저항, 통제 불가능한 상황\n\n변화에 저항하기보다 유연하게 대처하는 지혜가 필요합니다." }, desc_en: { upright: "Change, good luck, fateful turning point\n\nThe flow of life is changing. Accept the coming changes positively.", reversed: "Bad luck, resistance, uncontrollable situation\n\nWisdom to cope flexibly rather than resisting change is needed." } },
+    { id: 11, image: "https://upload.wikimedia.org/wikipedia/commons/e/e0/RWS_Tarot_11_Justice.jpg", name_ko: "11. 정의 (Justice)", name_en: "11. Justice", desc_ko: { upright: "공정함, 진실, 인과응보, 균형\n\n모든 일에는 원인과 결과가 있습니다. 객관적이고 이성적인 판단이 필요한 때입니다.", reversed: "불공정, 편견, 회피\n\n자신의 책임을 회피하지 마세요. 진실을 마주해야 해결책이 보입니다." }, desc_en: { upright: "Fairness, truth, cause and effect, balance\n\nThere is a cause and effect in everything. It is time for objective and rational judgment.", reversed: "Unfairness, prejudice, avoidance\n\nDo not evade your responsibility. You must face the truth to see the solution." } },
+    { id: 12, image: "https://upload.wikimedia.org/wikipedia/commons/2/2b/RWS_Tarot_12_Hanged_Man.jpg", name_ko: "12. 매달린 사람 (The Hanged Man)", name_en: "12. The Hanged Man", desc_ko: { upright: "희생, 새로운 관점, 정지, 기다림\n\n지금은 멈춰야 할 때입니다. 한 걸음 물러서서 세상을 다르게 바라보세요.", reversed: "무의미한 희생, 고집, 정체\n\n변화하지 않으려는 고집이 당신을 묶어두고 있을 수 있습니다." }, desc_en: { upright: "Sacrifice, new perspective, suspension, waiting\n\nIt is time to stop. Step back and look at the world differently.", reversed: "Meaningless sacrifice, stubbornness, stagnation\n\nStubbornness not to change might be holding you back." } },
+    { id: 13, image: "https://upload.wikimedia.org/wikipedia/commons/d/d7/RWS_Tarot_13_Death.jpg", name_ko: "13. 죽음 (Death)", name_en: "13. Death", desc_ko: { upright: "종결, 새로운 시작, 변화, 이별\n\n끝은 곧 새로운 시작입니다. 낡은 것을 버려야 새 것이 들어올 자리가 생깁니다.", reversed: "변화에 대한 저항, 미련, 정체\n\n과거에 얽매이지 마세요. 놓아주어야 할 때입니다." }, desc_en: { upright: "End, new beginning, transformation, parting\n\nThe end is a new beginning. You must discard the old to make room for the new.", reversed: "Resistance to change, attachment, stagnation\n\nDo not be tied to the past. It is time to let go." } },
+    { id: 14, image: "https://upload.wikimedia.org/wikipedia/commons/f/f8/RWS_Tarot_14_Temperance.jpg", name_ko: "14. 절제 (Temperance)", name_en: "14. Temperance", desc_ko: { upright: "균형, 조화, 인내, 중용\n\n극단적인 선택을 피하고 균형을 찾으세요. 조화로운 타협이 최선입니다.", reversed: "불균형, 과도함, 성급함\n\n지나침은 모자람만 못합니다. 욕심을 내려놓고 평정심을 찾으세요." }, desc_en: { upright: "Balance, harmony, patience, moderation\n\nAvoid extreme choices and find balance. Harmonious compromise is the best.", reversed: "Imbalance, excess, impatience\n\nToo much is worse than too little. Let go of greed and find composure." } },
+    { id: 15, image: "https://upload.wikimedia.org/wikipedia/commons/5/55/RWS_Tarot_15_Devil.jpg", name_ko: "15. 악마 (The Devil)", name_en: "15. The Devil", desc_ko: { upright: "중독, 속박, 욕망, 유혹\n\n자신을 옭아매는 건강하지 못한 집착이나 유혹에서 벗어나야 합니다.", reversed: "해방, 속박에서 벗어남, 자각\n\n드디어 쇠사슬을 끊을 힘이 생겼습니다. 자유를 향해 나아가세요." }, desc_en: { upright: "Addiction, bondage, desire, temptation\n\nYou need to break free from unhealthy obsessions or temptations that bind you.", reversed: "Liberation, breaking free, realization\n\nYou finally have the strength to break the chains. Move towards freedom." } },
+    { id: 16, image: "https://upload.wikimedia.org/wikipedia/commons/5/53/RWS_Tarot_16_Tower.jpg", name_ko: "16. 탑 (The Tower)", name_en: "16. The Tower", desc_ko: { upright: "갑작스런 변화, 붕괴, 재난, 깨달음\n\n견고해 보이던 것이 무너질 수 있습니다. 하지만 이는 더 튼튼한 기초를 쌓을 기회입니다.", reversed: "재난 모면, 두려움, 변화 거부\n\n피할 수 없는 변화를 억지로 막으려 하지 마세요. 받아들이는 것이 덜 고통스럽습니다." }, desc_en: { upright: "Sudden change, collapse, disaster, awakening\n\nWhat seemed solid might collapse. But this is an opportunity to build a stronger foundation.", reversed: "Averting disaster, fear, resisting change\n\nDo not try to force a stop to inevitable changes. Accepting it is less painful." } },
+    { id: 17, image: "https://upload.wikimedia.org/wikipedia/commons/d/db/RWS_Tarot_17_Star.jpg", name_ko: "17. 별 (The Star)", name_en: "17. The Star", desc_ko: { upright: "희망, 영감, 평온, 치유\n\n어두운 밤하늘에 별이 떴습니다. 희망을 잃지 않는다면 꿈은 이루어집니다.", reversed: "절망, 실망, 믿음 부족\n\n스스로를 믿지 못하고 있군요. 긍정적인 마음을 되찾으세요." }, desc_en: { upright: "Hope, inspiration, serenity, healing\n\nA star has risen in the dark night sky. Dreams come true if you don't lose hope.", reversed: "Despair, disappointment, lack of faith\n\nYou are not believing in yourself. Regain a positive mind." } },
+    { id: 18, image: "https://upload.wikimedia.org/wikipedia/commons/7/7f/RWS_Tarot_18_Moon.jpg", name_ko: "18. 달 (The Moon)", name_en: "18. The Moon", desc_ko: { upright: "불안, 환상, 무의식, 혼란\n\n앞이 잘 보이지 않는 시기입니다. 겉모습에 속지 말고 직관을 믿으세요.", reversed: "혼란 해소, 진실이 드러남, 공포 극복\n\n안개가 걷히고 진실이 드러나기 시작합니다. 막연한 두려움에서 벗어날 수 있습니다." }, desc_en: { upright: "Anxiety, illusion, subconscious, confusion\n\nA time when things are unclear. Do not be deceived by appearances and trust your intuition.", reversed: "Clarity, truth revealed, overcoming fear\n\nThe fog is lifting and the truth begins to reveal itself. You can escape vague fears." } },
+    { id: 19, image: "https://upload.wikimedia.org/wikipedia/commons/1/17/RWS_Tarot_19_Sun.jpg", name_ko: "19. 태양 (The Sun)", name_en: "19. The Sun", desc_ko: { upright: "성공, 기쁨, 활력, 긍정\n\n모든 것이 밝게 빛나는 최고의 시기입니다. 당신의 성공을 즐기세요!", reversed: "일시적 우울, 성공 지연\n\n구름이 잠시 태양을 가렸을 뿐입니다. 곧 다시 밝아질 것입니다." }, desc_en: { upright: "Success, joy, vitality, positivity\n\nThe best time when everything shines brightly. Enjoy your success!", reversed: "Temporary depression, delayed success\n\nClouds have only briefly covered the sun. It will brighten up again soon." } },
+    { id: 20, image: "https://upload.wikimedia.org/wikipedia/commons/d/d0/RWS_Tarot_20_Judgement.jpg", name_ko: "20. 심판 (Judgement)", name_en: "20. Judgement", desc_ko: { upright: "부활, 각성, 결과, 새로운 소명\n\n과거의 노력에 대한 보상을 받을 때입니다. 중요한 결단이 필요합니다.", reversed: "후회, 주저함, 자기 비판\n\n과거에 얽매여 앞으로 나아가지 못하고 있습니다. 털어내고 일어나세요." }, desc_en: { upright: "Rebirth, awakening, outcome, inner calling\n\nIt is time to be rewarded for past efforts. An important decision is needed.", reversed: "Regret, hesitation, self-criticism\n\nYou are tied to the past and cannot move forward. Shake it off and stand up." } },
+    { id: 21, image: "https://upload.wikimedia.org/wikipedia/commons/f/ff/RWS_Tarot_21_World.jpg", name_ko: "21. 세계 (The World)", name_en: "21. The World", desc_ko: { upright: "완성, 성취, 조화, 해피엔딩\n\n하나의 여정이 성공적으로 끝났습니다. 완벽한 조화와 만족을 누리세요.", reversed: "미완성, 지연, 부족함\n\n목표에 거의 도달했지만 조금 부족합니다. 마지막 한 조각을 찾아야 합니다." }, desc_en: { upright: "Completion, accomplishment, harmony, happy ending\n\nOne journey has ended successfully. Enjoy perfect harmony and satisfaction.", reversed: "Incompletion, delay, lack\n\nYou almost reached the goal but something is missing. You need to find the last piece." } }
+];
+
+/* =========================================
+   1. GLOBAL & TAB MANAGEMENT (SPA)
+   ========================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    initTabs();
+    initLotto();
+    initMbti();
+    initReactionGame();
+    initDarkMode();
+    initTarot();
+});
+
 function initTabs() {
-    const tabs = ['luck', 'decision', 'ability'];
+    const tabs = ['luck', 'decision', 'ability', 'tarot'];
     
     tabs.forEach(tab => {
         const btn = document.getElementById(`btn-${tab}`);
@@ -168,7 +205,7 @@ function initTabs() {
 }
 
 function switchTab(activeTab) {
-    const tabs = ['luck', 'decision', 'ability'];
+    const tabs = ['luck', 'decision', 'ability', 'tarot'];
     
     // Reset all
     tabs.forEach(tab => {
@@ -183,6 +220,79 @@ function switchTab(activeTab) {
     const targetBtn = document.getElementById(`btn-${activeTab}`);
     if(targetSec) targetSec.classList.add('active');
     if(targetBtn) targetBtn.classList.add(`active-${activeTab}`);
+}
+
+/* =========================================
+   5. TAROT LOGIC
+   ========================================= */
+function initTarot() {
+    const btn = document.getElementById('tarot-draw-btn');
+    if(btn) btn.addEventListener('click', drawCard);
+}
+
+function drawCard() {
+    const cardEl = document.getElementById('tarot-card');
+    const imageEl = document.getElementById('tarot-image');
+    const nameEl = document.getElementById('tarot-name');
+    const resultArea = document.getElementById('tarot-result');
+    const drawBtn = document.getElementById('tarot-draw-btn');
+    
+    if(!cardEl || !imageEl) return;
+
+    // Reset State
+    resultArea.classList.add('hidden');
+    cardEl.classList.remove('flipped');
+    drawBtn.disabled = true;
+    
+    // Random Selection
+    const cardIndex = Math.floor(Math.random() * TAROT_DATA.length);
+    const isReversed = Math.random() < 0.3; // 30% chance of reversed
+    const cardData = TAROT_DATA[cardIndex];
+
+    // Wait for flip back animation if it was already flipped (optional optimization)
+    // For now, we just update content after a short delay to simulate "shuffling/drawing"
+    
+    setTimeout(() => {
+        // Prepare content
+        const lang = getLang();
+        const orientationText = isReversed ? 
+            (lang === 'ko' ? '역방향 (Reversed)' : 'Reversed') : 
+            (lang === 'ko' ? '정방향 (Upright)' : 'Upright');
+        
+        const orientationClass = isReversed ? 'rotate-180 mb-2' : ''; // CSS class for image rotation if needed
+        
+        // Update DOM
+        imageEl.src = cardData.image;
+        imageEl.style.transform = isReversed ? 'rotate(180deg)' : 'rotate(0deg)'; // Rotate image for reversed
+        
+        if (lang === 'ko') {
+            nameEl.textContent = cardData.name_ko;
+            document.getElementById('tarot-desc').textContent = isReversed ? cardData.desc_ko.reversed : cardData.desc_ko.upright;
+            document.getElementById('tarot-orientation').textContent = orientationText;
+        } else {
+            nameEl.textContent = cardData.name_en;
+            document.getElementById('tarot-desc').textContent = isReversed ? cardData.desc_en.reversed : cardData.desc_en.upright;
+            document.getElementById('tarot-orientation').textContent = orientationText;
+        }
+
+        // Color badge for orientation
+        const badge = document.getElementById('tarot-orientation');
+        if (badge) {
+            badge.className = isReversed 
+                ? 'text-xs font-bold px-2 py-1 rounded bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 shadow-sm' 
+                : 'text-xs font-bold px-2 py-1 rounded bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 shadow-sm';
+        }
+
+        // Trigger Flip
+        cardEl.classList.add('flipped');
+        
+        // Show result after animation
+        setTimeout(() => {
+            resultArea.classList.remove('hidden');
+            resultArea.classList.add('animate-fadeIn');
+            drawBtn.disabled = false;
+        }, 600); // Sync with CSS transition
+    }, 200);
 }
 
 

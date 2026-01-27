@@ -63,6 +63,9 @@
                 <button id="btn-ability" class="flex-1 py-3 hover:bg-gray-50 dark:hover:bg-slate-700 nav-btn transition-colors">
                     ⚡ Reaction
                 </button>
+                <button id="btn-tarot" class="flex-1 py-3 hover:bg-gray-50 dark:hover:bg-slate-700 nav-btn transition-colors">
+                    🔮 Tarot
+                </button>
             </nav>
         </div>
     </header>
@@ -204,6 +207,57 @@
                 </p>
                 <p>
                     Daily Pick Lab's algorithm analyzes the cognitive functions of each MBTI and proposes the 'Optimal Choice' that you will be most satisfied with. Save your time worrying today and use that energy for something more precious.
+                </p>
+            </article>
+        </section>
+
+        <!-- ==================== TAROT SECTION ==================== -->
+        <section id="tarot-section" class="tab-content">
+            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 mb-8 border border-gray-100 dark:border-slate-700 transition-colors">
+                <h2 class="text-lg font-bold mb-6 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
+                    <span class="bg-indigo-100 dark:bg-indigo-900/30 p-1 rounded mr-2">🔮</span> Daily Tarot Reading
+                </h2>
+
+                <!-- Card Scene -->
+                <div class="mb-8 flex flex-col items-center">
+                    <div class="tarot-card-container mb-6" id="tarot-card">
+                        <div class="tarot-card-inner">
+                            <div class="tarot-front">
+                                <!-- Back design -->
+                            </div>
+                            <div class="tarot-back rounded-xl overflow-hidden shadow-inner bg-slate-100 dark:bg-slate-900">
+                                <img id="tarot-image" src="" alt="Tarot Card" class="w-full h-4/5 object-cover">
+                                <div class="h-1/5 flex items-center justify-center bg-white dark:bg-slate-800 p-2 border-t dark:border-slate-700">
+                                    <span id="tarot-name" class="font-bold text-sm text-slate-800 dark:text-slate-200">The Fool</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="tarot-draw-btn" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-indigo-200 dark:shadow-none transition active:scale-95">
+                        Draw Your Destiny ✨
+                    </button>
+                </div>
+
+                <!-- Result Area -->
+                <div id="tarot-result" class="bg-indigo-50 dark:bg-indigo-900/20 rounded-xl p-5 border border-indigo-100 dark:border-indigo-800 hidden">
+                    <div class="text-center mb-3">
+                        <span id="tarot-orientation" class="text-xs font-bold px-2 py-1 rounded bg-white dark:bg-slate-700 text-indigo-600 dark:text-indigo-300 shadow-sm">
+                            Upright
+                        </span>
+                    </div>
+                    <p id="tarot-desc" class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed whitespace-pre-line"></p>
+                </div>
+            </div>
+
+            <!-- Content for SEO -->
+            <article class="prose prose-sm prose-slate dark:prose-invert bg-white dark:bg-slate-800 p-5 rounded-xl border border-gray-100 dark:border-slate-700 transition-colors">
+                <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">🃏 Wisdom of Tarot</h3>
+                <p>
+                    Tarot is not just fortune-telling, but a mirror reflecting our subconscious. The 22 Major Arcana cards symbolize The Fool's Journey and help us look at our situations from a new perspective.
+                </p>
+                <p>
+                    What message does the card drawn today convey to you? This seemingly random choice might be the answer you've been looking for.
                 </p>
             </article>
         </section>
