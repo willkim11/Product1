@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-adsense-account" content="ca-pub-2678965337292925">
-    <meta name="description" content="데일리 픽 랩(Daily Pick Lab) - 당신의 일상을 위한 종합 솔루션. 로또 6/45 번호 분석부터 MBTI 기반 메뉴/여행 추천, 반응속도 테스트까지 한 곳에서 즐기세요.">
-    <meta name="keywords" content="로또번호생성기, MBTI추천, 오늘뭐먹지, 반응속도테스트, 무료운세, 결정장애해결, 데일리픽랩">
-    <meta property="og:title" content="데일리 픽 랩 - 운, 결정, 능력을 한번에!">
-    <meta property="og:description" content="과학적 로또 분석, MBTI 맞춤 추천, 그리고 당신의 피지컬 테스트까지. 무료 유틸리티 모음.">
+    <meta name="description" content="Daily Pick Lab - Total solution for your daily choices. Lotto 6/45 analysis, MBTI recommendations, Reaction Speed Test all in one place.">
+    <meta name="keywords" content="Lotto Generator, MBTI Recommendation, Food Recommendation, Reaction Test, Daily Pick Lab">
+    <meta property="og:title" content="Daily Pick Lab - Luck, Decision, Ability!">
+    <meta property="og:description" content="Scientific Lotto analysis, MBTI custom recommendations, and physical tests. Free utility collection.">
     
-    <title>Daily Pick Lab - 일상의 모든 선택</title>
+    <title>Daily Pick Lab - All Choices in Daily Life</title>
     
     <!-- Libraries -->
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
@@ -46,8 +46,8 @@
                     <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition text-gray-500 dark:text-gray-400" aria-label="Toggle Dark Mode">
                        🌓
                     </button>
-                    <a href="index_en.html" class="text-xs font-bold text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-300 px-2 py-1 rounded border border-gray-200 dark:border-gray-600 transition">
-                        EN
+                    <a href="index.html" class="text-xs font-bold text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-300 px-2 py-1 rounded border border-gray-200 dark:border-gray-600 transition">
+                        KO
                     </a>
                 </div>
             </div>
@@ -55,13 +55,13 @@
             <!-- Nav Tabs -->
             <nav class="flex text-center text-sm font-bold text-gray-400 dark:text-gray-500">
                 <button id="btn-luck" class="flex-1 py-3 hover:bg-gray-50 dark:hover:bg-slate-700 nav-btn active-luck transition-colors">
-                    🍀 로또/운
+                    🍀 Lotto/Luck
                 </button>
                 <button id="btn-decision" class="flex-1 py-3 hover:bg-gray-50 dark:hover:bg-slate-700 nav-btn transition-colors">
-                    🤔 결정/MBTI
+                    🤔 MBTI/Pick
                 </button>
                 <button id="btn-ability" class="flex-1 py-3 hover:bg-gray-50 dark:hover:bg-slate-700 nav-btn transition-colors">
-                    ⚡ 반응속도
+                    ⚡ Reaction
                 </button>
             </nav>
         </div>
@@ -70,33 +70,33 @@
     <main class="max-w-md mx-auto px-4 py-6">
 
         <!-- Ad Slot Top -->
-        <div class="adsense-slot rounded-xl">광고 영역 (상단)</div>
+        <div class="adsense-slot rounded-xl">Ad Area (Top)</div>
 
         <!-- ==================== LUCK SECTION (LOTTO) ==================== -->
         <section id="luck-section" class="tab-content active">
             <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 mb-8 border border-gray-100 dark:border-slate-700 transition-colors">
                 <h2 class="text-lg font-bold mb-4 text-green-600 dark:text-green-400 flex items-center">
-                    <span class="bg-green-100 dark:bg-green-900/30 p-1 rounded mr-2">💰</span> 로또 6/45 분석기
+                    <span class="bg-green-100 dark:bg-green-900/30 p-1 rounded mr-2">💰</span> Lotto 6/45 Analyzer
                 </h2>
                 
                 <div class="space-y-4 mb-6">
                     <div>
-                        <label class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase">홀짝 비율 전략</label>
+                        <label class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase">Odd/Even Ratio Strategy</label>
                         <select id="odd-even-ratio" class="w-full mt-1 p-2 border border-gray-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-transparent outline-none transition bg-white dark:bg-slate-700 dark:text-white">
-                            <option value="random">랜덤 (운에 맡김)</option>
-                            <option value="3:3">3:3 (가장 흔한 패턴)</option>
-                            <option value="4:2">4:2 (홀4:짝2)</option>
-                            <option value="2:4">2:4 (홀2:짝4)</option>
+                            <option value="random">Random (Trust Luck)</option>
+                            <option value="3:3">3:3 (Most Common)</option>
+                            <option value="4:2">4:2 (Odd 4 : Even 2)</option>
+                            <option value="2:4">2:4 (Odd 2 : Even 4)</option>
                         </select>
                     </div>
 
                     <div class="flex gap-2">
                         <div class="flex-1">
-                            <label class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase">고정수 (1개)</label>
+                            <label class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase">Fixed (1)</label>
                             <input type="number" id="include-num" class="w-full mt-1 p-2 border border-gray-200 dark:border-slate-600 rounded-lg text-center font-bold text-green-600 dark:text-green-400 bg-white dark:bg-slate-700" placeholder="★">
                         </div>
                         <div class="flex-[2]">
-                            <label class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase">제외수 (3개)</label>
+                            <label class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase">Exclude (3)</label>
                             <div class="flex gap-1 mt-1">
                                 <input type="number" id="exclude-1" class="w-full p-2 border border-gray-200 dark:border-slate-600 rounded-lg text-center bg-red-50 dark:bg-red-900/20 text-red-400 dark:text-red-300" placeholder="X">
                                 <input type="number" id="exclude-2" class="w-full p-2 border border-gray-200 dark:border-slate-600 rounded-lg text-center bg-red-50 dark:bg-red-900/20 text-red-400 dark:text-red-300" placeholder="X">
@@ -107,37 +107,37 @@
                 </div>
 
                 <div id="lotto-result" class="min-h-[4rem] flex justify-center items-center flex-wrap mb-6 bg-gray-50 dark:bg-slate-700/50 rounded-xl py-4 transition-colors">
-                    <span class="text-gray-400 text-sm">번호 생성 대기중...</span>
+                    <span class="text-gray-400 text-sm">Waiting for generation...</span>
                 </div>
 
                 <button id="lotto-gen-btn" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-green-200 dark:shadow-none transition active:scale-95 mb-3">
-                    행운 번호 생성하기 ✨
+                    Generate Lucky Numbers ✨
                 </button>
                 <button id="lotto-save-btn" class="w-full text-green-600 dark:text-green-400 text-sm font-bold hover:underline hidden">
-                    기록 저장하기
+                    Save History
                 </button>
             </div>
 
             <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm p-4 mb-8 border border-transparent dark:border-slate-700 transition-colors">
-                <h3 class="font-bold text-gray-700 dark:text-gray-300 text-sm mb-3">최근 생성 기록</h3>
+                <h3 class="font-bold text-gray-700 dark:text-gray-300 text-sm mb-3">Recent History</h3>
                 <ul id="lotto-history" class="space-y-2"></ul>
             </div>
 
             <!-- Content for SEO -->
             <article class="prose prose-sm prose-slate dark:prose-invert bg-white dark:bg-slate-800 p-5 rounded-xl border border-gray-100 dark:border-slate-700 transition-colors">
-                <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">📊 확률의 함정과 로또 명당의 심리학</h3>
+                <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">📊 The Trap of Probability and Lotto Psychology</h3>
                 <p>
-                    우리는 흔히 "독립 시행"이라는 수학적 개념을 잊곤 합니다. 저번 주에 1번이 나왔다고 해서 이번 주에 1번이나올 확률이 줄어드는 것은 아닙니다. 동전을 던져 앞면이 10번 나왔어도, 11번째 앞면이 나올 확률은 여전히 50%입니다.
+                    We often forget the mathematical concept of "independent events". Just because number 1 came out last week doesn't mean the probability of number 1 coming out this week decreases. Even if heads came up 10 times in a coin toss, the probability of heads coming up on the 11th toss is still 50%.
                 </p>
                 <p>
-                    하지만 <strong>'큰 수의 법칙'</strong>을 따져보면 이야기는 조금 달라집니다. 시행 횟수가 무한대로 갈수록, 결국 모든 번호의 출현 빈도는 비슷해져야 합니다. 이 지점에서 많은 분석가들이 '오랫동안 안 나온 번호(Cold Number)'에 배팅하는 전략을 세웁니다.
+                    However, if we look at the <strong>'Law of Large Numbers'</strong>, the story changes a bit. As the number of trials approaches infinity, the frequency of appearance of all numbers should eventually become similar. At this point, many analysts build a strategy of betting on 'Cold Numbers' that haven't appeared for a long time.
                 </p>
-                <h4 class="font-bold mt-4">명당은 존재하는가?</h4>
+                <h4 class="font-bold mt-4">Does a Lucky Spot Exist?</h4>
                 <p>
-                    1등이 많이 나온 명당 판매점의 비밀은 사실 간단합니다. <strong>'많이 팔리기 때문'</strong>입니다. 판매량이 다른 곳보다 10배 많다면, 당첨자가 나올 확률도 10배 높습니다. 하지만 이것이 당신 개개인의 당첨 확률을 높여주지는 않습니다. 어디서 사느냐보다 중요한 것은 <strong>어떤 번호 조합을 선택하느냐</strong>입니다.
+                    The secret of the lucky store where many 1st prize winners came out is actually simple. It is because <strong>'they sell a lot'</strong>. If the sales volume is 10 times higher than other places, the probability of a winner appearing is also 10 times higher. But this does not increase your individual winning probability. What is more important than where you buy is <strong>which number combination you choose</strong>.
                 </p>
                 <p>
-                    데일리 픽 랩의 생성기는 단순 랜덤이 아닌, 여러분이 직접 확률적 변수(홀짝 비율, 제외수 등)를 통제할 수 있게 함으로써 '운'에 '전략'을 더해드립니다.
+                    Daily Pick Lab's generator allows you to control probabilistic variables (odd/even ratio, exclusion numbers, etc.) yourself, adding 'Strategy' to 'Luck'.
                 </p>
             </article>
         </section>
@@ -146,42 +146,42 @@
         <section id="decision-section" class="tab-content">
             <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 mb-8 border border-gray-100 dark:border-slate-700 transition-colors">
                 <h2 class="text-lg font-bold mb-4 text-purple-600 dark:text-purple-400 flex items-center">
-                    <span class="bg-purple-100 dark:bg-purple-900/30 p-1 rounded mr-2">🧭</span> MBTI 맞춤 추천
+                    <span class="bg-purple-100 dark:bg-purple-900/30 p-1 rounded mr-2">🧭</span> MBTI Recommendation
                 </h2>
 
                 <div class="mb-4">
-                    <label class="block text-sm font-bold text-gray-500 dark:text-gray-400 mb-1">나의 MBTI 유형</label>
+                    <label class="block text-sm font-bold text-gray-500 dark:text-gray-400 mb-1">My MBTI Type</label>
                     <select id="mbti-select" class="w-full p-3 border border-gray-200 dark:border-slate-600 rounded-lg bg-gray-50 dark:bg-slate-700 dark:text-white transition">
-                        <option value="">선택해주세요</option>
-                        <option value="ISTJ">ISTJ (현실주의자)</option>
-                        <option value="ISFJ">ISFJ (수호자)</option>
-                        <option value="INFJ">INFJ (옹호자)</option>
-                        <option value="INTJ">INTJ (전략가)</option>
-                        <option value="ISTP">ISTP (장인)</option>
-                        <option value="ISFP">ISFP (예술가)</option>
-                        <option value="INFP">INFP (중재자)</option>
-                        <option value="INTP">INTP (논리술사)</option>
-                        <option value="ESTP">ESTP (사업가)</option>
-                        <option value="ESFP">ESFP (연예인)</option>
-                        <option value="ENFP">ENFP (활동가)</option>
-                        <option value="ENTP">ENTP (변론가)</option>
-                        <option value="ESTJ">ESTJ (경영자)</option>
-                        <option value="ESFJ">ESFJ (집정관)</option>
-                        <option value="ENFJ">ENFJ (선도자)</option>
-                        <option value="ENTJ">ENTJ (통솔자)</option>
+                        <option value="">Select Type</option>
+                        <option value="ISTJ">ISTJ (Logistician)</option>
+                        <option value="ISFJ">ISFJ (Defender)</option>
+                        <option value="INFJ">INFJ (Advocate)</option>
+                        <option value="INTJ">INTJ (Architect)</option>
+                        <option value="ISTP">ISTP (Virtuoso)</option>
+                        <option value="ISFP">ISFP (Adventurer)</option>
+                        <option value="INFP">INFP (Mediator)</option>
+                        <option value="INTP">INTP (Logician)</option>
+                        <option value="ESTP">ESTP (Entrepreneur)</option>
+                        <option value="ESFP">ESFP (Entertainer)</option>
+                        <option value="ENFP">ENFP (Campaigner)</option>
+                        <option value="ENTP">ENTP (Debater)</option>
+                        <option value="ESTJ">ESTJ (Executive)</option>
+                        <option value="ESFJ">ESFJ (Consul)</option>
+                        <option value="ENFJ">ENFJ (Protagonist)</option>
+                        <option value="ENTJ">ENTJ (Commander)</option>
                     </select>
                 </div>
 
                 <div class="mb-6">
-                    <label class="block text-sm font-bold text-gray-500 dark:text-gray-400 mb-1">고민 주제</label>
+                    <label class="block text-sm font-bold text-gray-500 dark:text-gray-400 mb-1">Topic</label>
                     <select id="mbti-category" class="w-full p-3 border border-gray-200 dark:border-slate-600 rounded-lg bg-gray-50 dark:bg-slate-700 dark:text-white transition">
-                        <option value="food">🍽️ 오늘 뭐 먹지?</option>
-                        <option value="trip">✈️ 이번 주 어디 가지?</option>
+                        <option value="food">🍽️ What to eat today?</option>
+                        <option value="trip">✈️ Where to go this week?</option>
                     </select>
                 </div>
 
                 <button id="mbti-btn" class="w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-purple-200 dark:shadow-none transition active:scale-95 mb-6">
-                    결정해줘! 🔮
+                    Decide for me! 🔮
                 </button>
 
                 <!-- Result Card -->
@@ -192,18 +192,18 @@
 
             <!-- Content for SEO -->
             <article class="prose prose-sm prose-slate dark:prose-invert bg-white dark:bg-slate-800 p-5 rounded-xl border border-gray-100 dark:border-slate-700 transition-colors">
-                <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">🧠 결정 장애(Decision Fatigue) 극복하기</h3>
+                <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">🧠 Overcoming Decision Fatigue</h3>
                 <p>
-                    현대인은 하루에 약 35,000번의 결정을 내린다고 합니다. 아침에 눈을 뜨는 순간부터 점심 메뉴, 퇴근 후 일정까지 끊임없는 선택의 연속입니다. 이로 인해 뇌가 지쳐버리는 현상을 <strong>'결정 피로(Decision Fatigue)'</strong>라고 부릅니다. 스티브 잡스가 매일 같은 옷을 입은 이유도 바로 이 결정을 줄여 뇌 에너지를 아끼기 위함이었습니다.
+                    Modern people make about 35,000 decisions a day. From the moment you wake up in the morning to lunch menus and schedules after work, it is a continuous series of choices. The phenomenon where the brain gets tired due to this is called <strong>'Decision Fatigue'</strong>. The reason Steve Jobs wore the same clothes every day was also to save brain energy by reducing these decisions.
                 </p>
-                <h4 class="font-bold mt-4">MBTI와 소비 성향</h4>
+                <h4 class="font-bold mt-4">MBTI and Consumption Patterns</h4>
                 <p>
-                    재미있는 점은 성격 유형(MBTI)에 따라 선호하는 선택지가 뚜렷하다는 것입니다. 
-                    <strong>J(판단형)</strong> 유형은 계획적이고 검증된 맛집을 선호하는 반면, 
-                    <strong>P(인식형)</strong> 유형은 즉흥적이고 새로운 경험을 주는 곳에 끌립니다.
+                    The interesting thing is that preferred options are distinct depending on the personality type (MBTI).
+                    <strong>J (Judging)</strong> types prefer planned and verified restaurants, while
+                    <strong>P (Perceiving)</strong> types are attracted to impromptu and new experiences.
                 </p>
                 <p>
-                    데일리 픽 랩의 알고리즘은 각 MBTI의 인지 기능을 분석하여, 당신이 가장 만족할 만한 '최적의 선택'을 제안합니다. 오늘만큼은 고민하는 시간을 아껴, 그 에너지를 더 소중한 곳에 써보세요.
+                    Daily Pick Lab's algorithm analyzes the cognitive functions of each MBTI and proposes the 'Optimal Choice' that you will be most satisfied with. Save your time worrying today and use that energy for something more precious.
                 </p>
             </article>
         </section>
@@ -212,12 +212,12 @@
         <section id="ability-section" class="tab-content">
             <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 mb-8 border border-gray-100 dark:border-slate-700 transition-colors">
                 <h2 class="text-lg font-bold mb-4 text-orange-500 dark:text-orange-400 flex items-center">
-                    <span class="bg-orange-100 dark:bg-orange-900/30 p-1 rounded mr-2">⚡</span> 반응속도 테스트
+                    <span class="bg-orange-100 dark:bg-orange-900/30 p-1 rounded mr-2">⚡</span> Reaction Speed Test
                 </h2>
-                <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">화면이 <span class="text-green-600 dark:text-green-400 font-bold">초록색</span>으로 바뀌면 최대한 빨리 클릭하세요!</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Click as fast as you can when the screen turns <span class="text-green-600 dark:text-green-400 font-bold">GREEN</span>!</p>
 
                 <div id="reaction-screen" class="w-full h-64 bg-red-500 rounded-xl flex flex-col justify-center items-center text-white font-bold text-xl mb-4 shadow-inner cursor-pointer select-none active:scale-[0.98] transition">
-                    <p>클릭해서 시작</p>
+                    <p>Click to Start</p>
                 </div>
 
                 <div id="reaction-result" class="text-center bg-gray-50 dark:bg-slate-700/50 p-4 rounded-xl border border-gray-200 dark:border-slate-600 hidden">
@@ -227,36 +227,36 @@
 
             <!-- Content for SEO -->
             <article class="prose prose-sm prose-slate dark:prose-invert bg-white dark:bg-slate-800 p-5 rounded-xl border border-gray-100 dark:border-slate-700 transition-colors">
-                <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">⏱️ 뇌의 반응 속도와 에이징 커브</h3>
+                <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100">⏱️ Brain Reaction Speed and Aging Curve</h3>
                 <p>
-                    인간의 반응 속도는 시각 정보가 망막을 통해 뇌로 전달되고, 뇌가 이를 인지하여 근육에 명령을 내리기까지의 시간을 의미합니다. 보통 20대 초반에 정점을 찍고 그 이후로는 서서히 느려집니다. 프로게이머들이 20대 중반만 되어도 '에이징 커브'를 걱정하는 이유입니다.
+                    Human reaction speed refers to the time it takes for visual information to be transmitted to the brain through the retina and for the brain to recognize it and give a command to the muscles. Usually, it peaks in the early 20s and gradually slows down thereafter. This is why professional gamers worry about the 'aging curve' even in their mid-20s.
                 </p>
-                <h4 class="font-bold mt-4">반응 속도를 높이는 법</h4>
+                <h4 class="font-bold mt-4">How to Improve Reaction Speed</h4>
                 <p>
-                    하지만 실망하기엔 이릅니다. 뇌의 <strong>'신경 가소성(Neuroplasticity)'</strong> 덕분에, 훈련을 통해 반응 속도를 유지하거나 개선할 수 있습니다.
-                    1. <strong>충분한 수면:</strong> 뇌의 처리 속도를 회복시키는 필수 조건입니다.
-                    2. <strong>유산소 운동:</strong> 뇌로 가는 혈류량을 늘려 인지 기능을 향상시킵니다.
-                    3. <strong>빠른 판단 게임:</strong> FPS 게임이나 이런 반응 속도 테스트를 반복하는 것도 신경 회로를 자극하는 훌륭한 훈련입니다.
+                    But it's too early to be disappointed. Thanks to the brain's <strong>'Neuroplasticity'</strong>, you can maintain or improve reaction speed through training.
+                    1. <strong>Sufficient Sleep:</strong> An essential condition for restoring the brain's processing speed.
+                    2. <strong>Aerobic Exercise:</strong> Increases blood flow to the brain to improve cognitive function.
+                    3. <strong>Fast Judgment Games:</strong> Repeating FPS games or reaction speed tests like this is also excellent training to stimulate neural circuits.
                 </p>
                 <p>
-                    데일리 픽 랩에서 당신의 뇌를 깨워보세요. 당신은 상위 1%에 도전할 준비가 되었나요?
+                    Wake up your brain at Daily Pick Lab, 5 minutes a day. Are you ready to challenge the top 1%?
                 </p>
             </article>
         </section>
 
         <!-- Ad Slot Bottom -->
-        <div class="adsense-slot rounded-xl">광고 영역 (하단)</div>
+        <div class="adsense-slot rounded-xl">Ad Area (Bottom)</div>
 
     </main>
 
     <footer class="bg-slate-800 dark:bg-slate-900 text-white py-10 mt-12 transition-colors">
         <div class="max-w-md mx-auto px-4 text-center">
             <h2 class="font-bold text-xl mb-2">Daily Pick Lab</h2>
-            <p class="text-slate-400 text-sm mb-4">당신의 결정과 행운을 연구합니다.</p>
+            <p class="text-slate-400 text-sm mb-4">Researching your decisions and luck.</p>
             <div class="border-t border-slate-700 pt-4">
                 <p class="text-xs text-slate-500">
                     © 2024 Daily Pick Lab. All rights reserved.<br>
-                    본 사이트의 콘텐츠는 재미와 참고용으로만 활용해주세요.
+                    Use content for fun and reference only.
                 </p>
             </div>
         </div>

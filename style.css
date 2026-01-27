@@ -34,6 +34,36 @@ body {
 }
 
 /* --- Section Transitions --- */
+/* --- Dark Mode Overrides --- */
+html.dark body {
+    background-color: #0f172a; /* Slate 900 */
+    color: #cbd5e1; /* Slate 300 */
+}
+
+/* AdSense in Dark Mode */
+html.dark .adsense-slot {
+    background-color: #1e293b; /* Slate 800 */
+    border-color: #475569; /* Slate 600 */
+    color: #94a3b8; /* Slate 400 */
+}
+
+/* Scrollbar in Dark Mode */
+html.dark .custom-scrollbar::-webkit-scrollbar-track {
+    background: #1e293b; 
+}
+html.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #475569; 
+}
+html.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #64748b; 
+}
+
+/* Lotto Ball Shadows for Dark Mode (Brighter glow maybe?) */
+html.dark .lotto-ball {
+    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.5), 3px 3px 5px rgba(255, 255, 255, 0.1);
+}
+
+/* Tab Content Animation Correction */
 .tab-content {
     display: none;
     animation: fadeIn 0.4s ease-in-out;
