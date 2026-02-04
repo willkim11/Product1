@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-
+Allow: /assets/
 Sitemap: https://product1-avr.pages.dev/sitemap.xml

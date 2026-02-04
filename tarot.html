@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Daily Pick Lab">
+    <meta name="google-adsense-account" content="ca-pub-2678965337292925">
+    
+    <!-- SEO Meta Tags -->
+    <title>무료 타로 운세 - 오늘 당신에게 전하는 카드의 메시지 | Daily Pick Lab</title>
+    <meta name="description" content="AI 무료 타로 점보기. 매일 한 장의 카드를 뽑아 오늘의 운세와 조언을 확인하세요. 메이저 아르카나 22장의 깊이 있는 해석과 정방향/역방향 리딩을 제공합니다.">
+    <meta name="keywords" content="무료 타로, 오늘의 타로, 타로 카드 뽑기, 타로 운세, 온라인 타로, 타로 해석, 타로 메이저 아르카나">
+    <link rel="canonical" href="https://product1-avr.pages.dev/tarot.html">
+    
+    <!-- Open Graph (SNS) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://product1-avr.pages.dev/tarot.html">
+    <meta property="og:title" content="무료 타로 운세 - 오늘의 카드 뽑기">
+    <meta property="og:description" content="고민이 있으신가요? 타로 카드가 전하는 지혜로운 조언을 지금 무료로 확인해보세요.">
+    <meta property="og:image" content="assets/og-image.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://product1-avr.pages.dev/tarot.html">
+    <meta name="twitter:title" content="무료 타로 운세">
+    <meta name="twitter:description" content="오늘 당신의 운명은? 카드를 선택하세요.">
+    <meta name="twitter:image" content="assets/og-image.png">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        luck: '#10b981',
+                        decision: '#8b5cf6',
+                        ability: '#f97316',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2678965337292925" crossorigin="anonymous"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Daily Pick Lab 타로 운세",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "KRW"
+      },
+      "description": "메이저 아르카나 타로 카드를 통해 오늘의 운세와 조언을 제공하는 무료 웹 서비스입니다."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "타로 카드의 정방향과 역방향은 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "정방향은 카드의 본래 긍정적 의미나 에너지가 잘 발휘됨을 의미하고, 역방향은 그 에너지가 과하거나 부족함, 또는 지연됨을 의미합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "온라인 타로도 효과가 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "타로는 무의식을 투영하는 도구입니다. 카드를 뽑는 순간 당신의 집중과 해석하는 과정에서의 통찰이 중요하기 때문에, 온라인으로도 충분히 의미 있는 메시지를 얻을 수 있습니다."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-gray-300 transition-colors duration-300">
+
+    <!-- Header -->
+    <header class="bg-white dark:bg-slate-800 shadow-sm sticky top-0 z-50 transition-colors">
+        <div class="max-w-md mx-auto px-4 py-4 flex justify-between items-center border-b border-gray-100 dark:border-gray-700 transition-colors">
+            <h1 class="text-xl font-black text-slate-800 dark:text-white tracking-tight">
+                <a href="index.html" class="flex items-center gap-1">
+                    <span class="text-indigo-600 dark:text-indigo-400">Daily</span> Pick Lab
+                </a>
+            </h1>
+            <div class="flex items-center gap-2">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition text-gray-500 dark:text-gray-400" aria-label="Toggle Dark Mode">
+                   🌓
+                </button>
+                <a href="index.html" class="text-xs font-bold text-gray-500 hover:text-indigo-600 border border-gray-200 px-2 py-1 rounded">🏠 Home</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-md mx-auto px-4 py-6">
+        <!-- Ad Slot -->
+        <div class="adsense-slot rounded-xl mb-6">광고 영역</div>
+
+        <!-- Tool Section -->
+        <section id="tarot-section" class="mb-8">
+            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 mb-8 border border-gray-100 dark:border-slate-700 transition-colors">
+                <h2 class="text-lg font-bold mb-6 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
+                    <span class="bg-indigo-100 dark:bg-indigo-900/30 p-1 rounded mr-2">🔮</span> 오늘의 타로 운세
+                </h2>
+
+                <!-- Card Scene -->
+                <div class="mb-8 flex flex-col items-center">
+                    <div class="tarot-card-container mb-6" id="tarot-card">
+                        <div class="tarot-card-inner">
+                            <div class="tarot-front">
+                                <!-- Back design -->
+                            </div>
+                            <div class="tarot-back rounded-xl overflow-hidden shadow-inner bg-slate-100 dark:bg-slate-900">
+                                <img id="tarot-image" src="" alt="Tarot Card" class="w-full h-4/5 object-cover">
+                                <div class="h-1/5 flex items-center justify-center bg-white dark:bg-slate-800 p-2 border-t dark:border-slate-700">
+                                    <span id="tarot-name" class="font-bold text-sm text-slate-800 dark:text-slate-200">The Fool</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="tarot-draw-btn" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-indigo-200 dark:shadow-none transition active:scale-95">
+                        운명의 카드 뽑기 ✨
+                    </button>
+                </div>
+
+                <!-- Result Area -->
+                <div id="tarot-result" class="bg-indigo-50 dark:bg-indigo-900/20 rounded-xl p-5 border border-indigo-100 dark:border-indigo-800 hidden">
+                    <div class="text-center mb-3">
+                        <span id="tarot-orientation" class="text-xs font-bold px-2 py-1 rounded bg-white dark:bg-slate-700 text-indigo-600 dark:text-indigo-300 shadow-sm">
+                            정방향
+                        </span>
+                    </div>
+                    <p id="tarot-desc" class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed whitespace-pre-line"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Content -->
+        <article class="prose prose-sm prose-slate dark:prose-invert bg-white dark:bg-slate-800 p-6 rounded-xl border border-gray-100 dark:border-slate-700 transition-colors mb-8">
+            <h2 class="text-xl font-bold text-gray-800 dark:text-gray-100">🃏 타로 카드 리딩 가이드</h2>
+            
+            <h3 class="text-lg font-bold mt-6">메이저 아르카나(Major Arcana)란?</h3>
+            <p>
+                타로 덱의 중심이 되는 22장의 카드로, 인생의 큰 흐름과 영적인 교훈을 담고 있습니다. '0번 바보(The Fool)'가 여행을 떠나 '21번 세계(The World)'에서 완성에 이르는 과정을 보여줍니다.
+            </p>
+
+            <h3 class="text-lg font-bold mt-6">⬆️ 정방향 vs ⬇️ 역방향</h3>
+            <ul class="list-disc pl-5 my-4">
+                <li><strong>정방향 (Upright):</strong> 카드의 에너지가 긍정적이고 원활하게 흐르는 상태입니다. 계획대로 진행되거나 조화로운 상태를 의미합니다.</li>
+                <li><strong>역방향 (Reversed):</strong> 에너지가 막히거나, 과하거나, 부족한 상태입니다. 주의가 필요하거나 내면의 성찰이 필요한 시기를 암시합니다.</li>
+            </ul>
+            
+            <details class="bg-gray-50 dark:bg-slate-700/50 p-3 rounded-lg mt-4 cursor-pointer">
+                <summary class="font-bold text-indigo-600 dark:text-indigo-400">주요 카드 의미 요약 보기</summary>
+                <div class="mt-3 text-sm space-y-2">
+                    <p><strong>0. The Fool:</strong> 순수한 시작, 무한한 가능성</p>
+                    <p><strong>1. The Magician:</strong> 창조력, 준비된 능력</p>
+                    <p><strong>6. The Lovers:</strong> 사랑, 선택, 조화</p>
+                    <p><strong>10. Wheel of Fortune:</strong> 운명적인 변화</p>
+                    <p><strong>13. Death:</strong> 끝과 새로운 시작</p>
+                    <p><strong>19. The Sun:</strong> 성공, 긍정, 활력</p>
+                </div>
+            </details>
+        </article>
+        
+        <!-- FAQ Section -->
+        <section class="mb-8">
+            <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4 px-2">자주 묻는 질문</h3>
+            <div class="space-y-4">
+                <details class="group bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-4 open:ring-1 open:ring-indigo-400">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none">
+                        <span>같은 카드가 계속 나와요.</span>
+                        <span class="transition group-open:rotate-180">▼</span>
+                    </summary>
+                    <div class="text-gray-600 dark:text-gray-400 mt-3 text-sm leading-relaxed">
+                        우연일 수 있지만, 그 카드가 전하는 메시지를 아직 당신이 받아들이지 못했거나 해결되지 않은 이슈가 있다는 신호일 수 있습니다. 메시지를 깊이 묵상해보세요.
+                    </div>
+                </details>
+                <details class="group bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-4">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none">
+                        <span>미래를 정확히 맞추나요?</span>
+                        <span class="transition group-open:rotate-180">▼</span>
+                    </summary>
+                    <div class="text-gray-600 dark:text-gray-400 mt-3 text-sm leading-relaxed">
+                        타로는 정해진 미래를 예언하기보다는, 현재의 흐름을 기반으로 가장 가능성 높은 미래를 보여주고, 더 나은 선택을 할 수 있도록 조언하는 도구입니다. 미래는 당신의 행동에 따라 바뀝니다.
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- Other Tools -->
+        <section class="grid grid-cols-2 gap-4 mb-8">
+            <a href="lotto.html" class="block p-4 bg-green-50 dark:bg-slate-800 rounded-xl border border-green-100 dark:border-slate-700 hover:shadow-md transition">
+                <span class="text-2xl mb-2 block">💰</span>
+                <span class="font-bold text-sm text-green-700 dark:text-green-400">로또 번호 생성기</span>
+            </a>
+            <a href="mbti-food.html" class="block p-4 bg-purple-50 dark:bg-slate-800 rounded-xl border border-purple-100 dark:border-slate-700 hover:shadow-md transition">
+                <span class="text-2xl mb-2 block">🍱</span>
+                <span class="font-bold text-sm text-purple-700 dark:text-purple-400">MBTI 음식 추천</span>
+            </a>
+            <a href="reaction-test.html" class="block p-4 bg-orange-50 dark:bg-slate-800 rounded-xl border border-orange-100 dark:border-slate-700 hover:shadow-md transition col-span-2 text-center">
+                <span class="text-2xl mb-2 inline-block">⚡</span>
+                <span class="font-bold text-sm text-orange-700 dark:text-orange-400">반응속도 테스트 하러 가기</span>
+            </a>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-800 dark:bg-slate-900 text-white py-10 mt-12 transition-colors">
+        <div class="max-w-md mx-auto px-4 text-center">
+            <p class="text-slate-400 text-sm mb-4">Daily Pick Lab - 당신의 운명을 연구합니다.</p>
+            <div class="border-t border-slate-700 pt-4">
+                <p class="text-xs text-slate-500 mb-2">
+                    <a href="terms.html" class="hover:text-white transition">이용약관</a> | 
+                    <a href="privacy.html" class="hover:text-white transition">개인정보처리방침</a>
+                </p>
+                <p class="text-xs text-slate-500">© 2024 Daily Pick Lab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
