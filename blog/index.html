@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>블로그 - Daily Pick Lab</title>
+    <meta name="description" content="수학, 심리학, 뇌과학으로 풀어내는 일상의 선택과 운에 대한 이야기. 로또 확률부터 결정 장애 극복까지.">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        luck: '#10b981',
+                        decision: '#8b5cf6',
+                        ability: '#f97316',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-gray-300 transition-colors duration-300">
+
+    <!-- Header -->
+    <header class="bg-white dark:bg-slate-800 shadow-sm sticky top-0 z-50 transition-colors">
+        <div class="max-w-md mx-auto">
+            <div class="px-4 py-4 flex justify-between items-center bg-white dark:bg-slate-800 transition-colors">
+                <a href="../index.html" class="text-xl font-black text-slate-800 dark:text-white tracking-tight">
+                    <span class="text-indigo-600 dark:text-indigo-400">Daily</span> Pick Lab
+                </a>
+                <div class="flex items-center gap-3">
+                    <a href="../about.html" class="text-sm font-bold text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400">About</a>
+                    <a href="index.html" class="text-sm font-bold text-indigo-600 dark:text-indigo-400">Blog</a>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition text-gray-500 dark:text-gray-400" aria-label="Toggle Dark Mode">
+                       🌓
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-md mx-auto px-4 py-6">
+        <h1 class="text-2xl font-bold mb-2 text-slate-800 dark:text-white">블로그</h1>
+        <p class="text-slate-500 dark:text-slate-400 mb-8">일상 속 선택과 확률에 대한 흥미로운 이야기들</p>
+
+        <div class="grid gap-6">
+            <!-- Blog Post 1 -->
+            <article class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm p-5 border border-gray-100 dark:border-slate-700 transition hover:shadow-md">
+                <span class="text-xs font-bold text-green-600 dark:text-green-400 mb-2 block">수학 & 로또</span>
+                <h2 class="text-lg font-bold text-slate-800 dark:text-white mb-2 leading-tight">
+                    <a href="probability-mathematics.html" class="hover:underline">확률의 수학: 로또 조합은 어떻게 작동하는가 ($nCr$ 공식)</a>
+                </h2>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mb-4 line-clamp-2">
+                    로또 1등 당첨 확률 814만 분의 1의 비밀. 조합 공식(nCr)을 통해 알아보는 숫자의 세계와 독립 시행의 진실을 파헤칩니다.
+                </p>
+                <div class="flex justify-between items-center text-xs text-slate-400">
+                    <span>2024. 05. 20</span>
+                    <a href="probability-mathematics.html" class="font-bold text-indigo-500 hover:text-indigo-600">읽기 →</a>
+                </div>
+            </article>
+
+            <!-- Blog Post 2 -->
+            <article class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm p-5 border border-gray-100 dark:border-slate-700 transition hover:shadow-md">
+                <span class="text-xs font-bold text-purple-600 dark:text-purple-400 mb-2 block">심리학 & 결정</span>
+                <h2 class="text-lg font-bold text-slate-800 dark:text-white mb-2 leading-tight">
+                    <a href="decision-fatigue.html" class="hover:underline">결정 피로(Decision Fatigue): 왜 우리는 랜덤 선택 도구가 필요한가</a>
+                </h2>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mb-4 line-clamp-2">
+                    스티브 잡스가 매일 같은 옷을 입은 이유? 현대인의 뇌를 지치게 하는 결정 피로의 원인과 이를 극복하기 위한 심리학적 해법.
+                </p>
+                <div class="flex justify-between items-center text-xs text-slate-400">
+                    <span>2024. 05. 21</span>
+                    <a href="decision-fatigue.html" class="font-bold text-indigo-500 hover:text-indigo-600">읽기 →</a>
+                </div>
+            </article>
+
+            <!-- Blog Post 3 -->
+            <article class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm p-5 border border-gray-100 dark:border-slate-700 transition hover:shadow-md">
+                <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400 mb-2 block">심리학 & 타로</span>
+                <h2 class="text-lg font-bold text-slate-800 dark:text-white mb-2 leading-tight">
+                    <a href="tarot-psychology.html" class="hover:underline">타로와 자아 성찰의 심리학: 무의식을 비추는 거울</a>
+                </h2>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mb-4 line-clamp-2">
+                    단순한 점술을 넘어 융의 동시성 이론과 투사 심리학으로 바라본 타로 카드. 당신이 뽑은 카드는 당신의 무의식을 어떻게 반영하는가?
+                </p>
+                <div class="flex justify-between items-center text-xs text-slate-400">
+                    <span>2024. 05. 22</span>
+                    <a href="tarot-psychology.html" class="font-bold text-indigo-500 hover:text-indigo-600">읽기 →</a>
+                </div>
+            </article>
+
+            <!-- Blog Post 4 -->
+            <article class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm p-5 border border-gray-100 dark:border-slate-700 transition hover:shadow-md">
+                <span class="text-xs font-bold text-orange-600 dark:text-orange-400 mb-2 block">뇌과학 & 반응속도</span>
+                <h2 class="text-lg font-bold text-slate-800 dark:text-white mb-2 leading-tight">
+                    <a href="reaction-time-neuroscience.html" class="hover:underline">반응 속도의 이해: 뇌과학 기초와 에이징 커브</a>
+                </h2>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mb-4 line-clamp-2">
+                    시각 정보가 뇌를 거쳐 손가락 근육까지 도달하는 0.2초의 기적. 신경 가소성과 훈련을 통해 반응 속도를 개선하는 방법.
+                </p>
+                <div class="flex justify-between items-center text-xs text-slate-400">
+                    <span>2024. 05. 23</span>
+                    <a href="reaction-time-neuroscience.html" class="font-bold text-indigo-500 hover:text-indigo-600">읽기 →</a>
+                </div>
+            </article>
+
+             <!-- Blog Post 5 -->
+             <article class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm p-5 border border-gray-100 dark:border-slate-700 transition hover:shadow-md">
+                <span class="text-xs font-bold text-blue-600 dark:text-blue-400 mb-2 block">통계 & 시뮬레이션</span>
+                <h2 class="text-lg font-bold text-slate-800 dark:text-white mb-2 leading-tight">
+                    <a href="monte-carlo-simulation.html" class="hover:underline">일상 속의 몬테카를로 시뮬레이션 활용법</a>
+                </h2>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mb-4 line-clamp-2">
+                    무작위 난수를 이용해 불확실한 미래를 예측하는 몬테카를로 기법. 도박사의 오류를 넘어 수학적 모델링으로 세상을 보는 법.
+                </p>
+                <div class="flex justify-between items-center text-xs text-slate-400">
+                    <span>2024. 05. 24</span>
+                    <a href="monte-carlo-simulation.html" class="font-bold text-indigo-500 hover:text-indigo-600">읽기 →</a>
+                </div>
+            </article>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-800 dark:bg-slate-900 text-white py-10 mt-12 transition-colors">
+        <div class="max-w-md mx-auto px-4 text-center">
+            <h2 class="font-bold text-xl mb-2">Daily Pick Lab</h2>
+            <p class="text-slate-400 text-sm mb-6">당신의 결정과 행운을 연구합니다.</p>
+            <div class="border-t border-slate-700 pt-4">
+                <p class="text-xs text-slate-500 mb-2">
+                    <a href="../terms.html" class="hover:text-white transition">이용약관</a> | 
+                    <a href="../privacy.html" class="hover:text-white transition">개인정보처리방침</a>
+                </p>
+                <p class="text-xs text-slate-500">
+                    © 2024 Daily Pick Lab. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Use the same dark mode logic
+        const updateTheme = () => {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        };
+        updateTheme();
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.theme = 'light';
+            } else {
+                localStorage.theme = 'dark';
+            }
+            updateTheme();
+        });
+    </script>
+</body>
+</html>

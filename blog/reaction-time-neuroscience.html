@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응 속도의 이해: 뇌과학 기초와 에이징 커브 - Daily Pick Lab</title>
+    <meta name="description" content="시각 정보가 뇌를 거쳐 손가락 근육까지 도달하는 0.2초의 기적. 신경 가소성과 훈련을 통해 반응 속도를 개선하는 방법.">
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        luck: '#10b981',
+                        decision: '#8b5cf6',
+                        ability: '#f97316',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-gray-300 transition-colors duration-300">
+
+    <header class="bg-white dark:bg-slate-800 shadow-sm sticky top-0 z-50 transition-colors">
+        <div class="max-w-md mx-auto">
+             <div class="px-4 py-4 flex justify-between items-center bg-white dark:bg-slate-800 transition-colors">
+                <a href="../index.html" class="text-xl font-black text-slate-800 dark:text-white tracking-tight">
+                    <span class="text-indigo-600 dark:text-indigo-400">Daily</span> Pick Lab
+                </a>
+                <div class="flex items-center gap-3">
+                    <a href="../about.html" class="text-sm font-bold text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400">About</a>
+                    <a href="index.html" class="text-sm font-bold text-indigo-600 dark:text-indigo-400">Blog</a>
+                     <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition text-gray-500 dark:text-gray-400" aria-label="Toggle Dark Mode">
+                       🌓
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-md mx-auto px-4 py-6">
+         <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 mb-8 border border-gray-100 dark:border-slate-700 transition-colors">
+            <h1 class="text-2xl font-bold mb-4 text-slate-800 dark:text-white">반응 속도의 이해: 뇌과학 기초와 에이징 커브</h1>
+            <div class="flex items-center text-sm text-slate-400 mb-6">
+                <span>2024. 05. 23</span>
+                <span class="mx-2">•</span>
+                <span class="text-orange-500 font-bold">뇌과학 & 반응속도</span>
+            </div>
+            
+            <article class="prose prose-sm prose-slate dark:prose-invert max-w-none">
+                <p class="lead">
+                    0.2초. 전성기 시절 '황제'라 불리던 프로게이머들이 화면 속 적을 보고 마우스를 클릭하기까지 걸리는 시간입니다. 
+                    일반인은 보통 0.25초에서 0.3초 정도가 걸린다고 합니다. 
+                    찰나의 순간처럼 보이지만, 이 짧은 시간 동안 우리 몸속에서는 엄청난 정보 처리 과정이 일어납니다. 
+                    오늘은 뇌과학 관점에서 <strong>반응 속도(Reaction Time)</strong>의 메커니즘과 노화에 따른 변화, 
+                    그리고 훈련 가능성에 대해 알아봅니다.
+                </p>
+
+                <h2>1. 반응 속도의 메커니즘: 정보의 고속도로</h2>
+                <p>
+                    반응 속도는 단순히 '눈이 빠르다'거나 '손이 빠르다'는 문제가 아닙니다. 
+                    이는 <strong>감각 기관 -> 뇌(인지/판단) -> 운동 기관</strong>으로 이어지는 복잡한 신경 전달 과정의 총합입니다.
+                </p>
+                <ol>
+                    <li>
+                        <strong>감각 등록 (Sensory Registration):</strong> 
+                        빛(시각 정보)이 눈의 망막에 도달하면 전기 신호로 바뀌어 시신경을 타고 뇌의 시각 피질(후두엽)로 전달됩니다. 
+                        이 과정은 매우 빠르게 일어나지만 약 0.05초 정도의 지연이 발생합니다.
+                    </li>
+                    <li>
+                        <strong>인지 및 결정 (Perception & Decision):</strong> 
+                        시각 피질은 "빨간 불이 켜졌다"는 정보를 분석하고, 전두엽으로 보내 "브레이크를 밟아라"라는 명령을 내립니다. 
+                        가장 시간이 많이 걸리는 단계로, 주의력이나 피로도에 따라 크게 좌우됩니다.
+                    </li>
+                    <li>
+                        <strong>운동 실행 (Motor Execution):</strong> 
+                        뇌의 명령이 척수를 타고 다리 근육의 운동 신경으로 전달되면 근육이 수축하여 실제로 브레이크를 밟습니다.
+                    </li>
+                </ol>
+
+                <h2>2. 에이징 커브: 20대 중반, 뇌의 전성기가 꺾인다?</h2>
+                <p>
+                    슬픈 사실이지만, 인간의 반응 속도는 <strong>24세 전후</strong>에 정점을 찍고 그 이후로는 서서히 느려집니다. 
+                    이를 e스포츠 업계에서는 '에이징 커브(Aging Curve)'라고 부릅니다. 
+                    실제로 스타크래프트 리그오브레전드 같은 빠른 피지컬을 요구하는 게임에서는 20대 후반의 선수를 찾기 힘듭니다.
+                </p>
+                <p>
+                    나이가 들면 신경 세포(뉴런) 사이를 연결하는 축삭돌기의 <strong>수초(Myelin Sheath)</strong>가 손상되거나 얇아져 
+                    전기 신호의 전달 속도가 물리적으로 느려지기 때문입니다. 
+                    마치 고속도로의 포장이 벗겨져 차들이 속도를 내지 못하는 것과 비슷합니다.
+                의 신호 전달 속도는 약 120m/s에 달하지만, 노화가 진행되면 이 속도가 점차 줄어들게 됩니다.
+                </p>
+
+                <h2>3. 훈련으로 극복할 수 있을까? (신경 가소성)</h2>
+                <p>
+                    하지만 절망할 필요는 없습니다. 뇌는 <strong>'신경 가소성(Neuroplasticity)'</strong>이라는 놀라운 능력을 가지고 있습니다. 
+                    반복적인 훈련과 자극을 통해 뇌 회로를 재구성하고 강화할 수 있다는 것입니다.
+                </p>
+                <ul>
+                    <li>
+                        <strong>예측 능력 강화:</strong> 반응 속도 자체가 느려지더라도, 
+                        경험이 쌓이면 상황을 미리 <strong>예측(Prediction)</strong>하여 뇌의 처리 시간을 단축시킬 수 있습니다. 
+                        베테랑 운동선수들이 체력은 떨어져도 노련미로 살아남는 이유입니다.
+                    </li>
+                    <li>
+                        <strong>신경 가소성 자극:</strong> FPS 게임, 탁구, 배드민턴 등 빠른 판단을 요구하는 활동을 꾸준히 하면 
+                        관련 뇌 영역이 활성화되어 노화 속도를 늦출 수 있습니다.
+                    </li>
+                </ul>
+
+                <h2>4. 반응 속도에 영향을 미치는 요인들</h2>
+                <p>
+                    Daily Pick Lab의 반응 속도 테스트를 해보면 매번 결과가 다르게 나올 것입니다. 
+                    그 이유는 반응 속도가 단순히 타고난 능력뿐만 아니라 <strong>현재의 컨디션</strong>에 민감하게 반응하기 때문입니다.
+                </p>
+                <ul>
+                    <li><strong>피로와 수면 부족:</strong> 수면이 부족하면 뇌의 전두엽 기능이 저하되어 판단 속도가 느려집니다. 음주 운전만큼이나 위험합니다.</li>
+                    <li><strong>주의 산만:</strong> 멀티태스킹을 하거나 스마트폰을 보면서 반응 속도를 측정하면 당연히 느려집니다. 뇌는 한 번에 하나의 작업에만 집중할 때 가장 빠릅니다.</li>
+                    <li><strong>카페인:</strong> 적당량의 카페인은 중추 신경을 흥분시켜 일시적으로 반응 속도를 빠르게 만들 수 있습니다.</li>
+                </ul>
+
+                <h2>5. 결론: 뇌의 건강 상태를 체크하는 지표</h2>
+                <p>
+                    반응 속도는 단순한 게임 점수가 아니라, 
+                    당신의 뇌가 얼마나 맑고 건강하게 작동하고 있는지를 보여주는 <strong>바이오마커(Biomarker)</strong>일 수 있습니다.
+                </p>
+                <p>
+                    오늘 기분이 멍하고 집중이 안 된다면, Daily Pick Lab에 접속해 반응 속도 테스트를 한 번 해보세요. 
+                    평소보다 0.05초 이상 느리다면, 뇌가 "조금 쉬었다 가자"는 신호를 보내고 있는 것일지도 모릅니다.
+                </p>
+
+                <hr class="my-8 border-gray-200 dark:border-gray-700">
+                
+                <h3 class="text-lg font-bold">참고 자료</h3>
+                <ul class="list-disc pl-5 text-sm text-slate-500">
+                    <li>Thompson, J. J., Blair, M. R., & Henrey, A. J. (2014). <em>Over the hill at 24: Persistent age-related cognitive-motor decline in reaction times in an ecologically valid video game task</em>. PLOS ONE.</li>
+                    <li>Kandel, E. R. (2000). <em>Principles of Neural Science</em>. McGraw-Hill.</li>
+                </ul>
+
+            </article>
+        </div>
+        
+        <div class="text-center">
+            <a href="index.html" class="inline-block bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-xl transition shadow-lg shadow-indigo-200 dark:shadow-none">
+                목록으로 돌아가기
+            </a>
+        </div>
+    </main>
+
+    <footer class="bg-slate-800 dark:bg-slate-900 text-white py-10 mt-12 transition-colors">
+        <div class="max-w-md mx-auto px-4 text-center">
+            <h2 class="font-bold text-xl mb-2">Daily Pick Lab</h2>
+            <div class="border-t border-slate-700 pt-4">
+                <p class="text-xs text-slate-500 mb-2">
+                    <a href="../terms.html" class="hover:text-white transition">이용약관</a> | 
+                    <a href="../privacy.html" class="hover:text-white transition">개인정보처리방침</a>
+                </p>
+                <p class="text-xs text-slate-500">
+                    © 2024 Daily Pick Lab. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const updateTheme = () => {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        };
+        updateTheme();
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', () => {
+             if (document.documentElement.classList.contains('dark')) {
+                localStorage.theme = 'light';
+            } else {
+                localStorage.theme = 'dark';
+            }
+            updateTheme();
+        });
+    </script>
+</body>
+</html>

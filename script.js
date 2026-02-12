@@ -293,9 +293,19 @@ function drawCard() {
 function initLotto() {
     const generateBtn = document.getElementById('lotto-gen-btn');
     const saveBtn = document.getElementById('lotto-save-btn');
+    const clearBtn = document.getElementById('lotto-clear-btn');
     if(generateBtn) generateBtn.addEventListener('click', generateLotto);
     if(saveBtn) saveBtn.addEventListener('click', saveLottoHistory);
+    if(clearBtn) clearBtn.addEventListener('click', clearLottoHistory);
     
+    renderLottoHistory();
+}
+
+function clearLottoHistory() {
+    const lang = getLang();
+    if(!confirm(lang === 'ko' ? '모든 기록을 삭제하시겠습니까?' : 'Clear all history?')) return;
+    
+    localStorage.removeItem(LOTTO_STORAGE_KEY);
     renderLottoHistory();
 }
 

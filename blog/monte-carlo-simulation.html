@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일상 속의 몬테카를로 시뮬레이션 활용법 - Daily Pick Lab</title>
+    <meta name="description" content="무작위 난수를 이용해 불확실한 미래를 예측하는 몬테카를로 기법. 도박사의 오류를 넘어 수학적 모델링으로 세상을 보는 법.">
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        luck: '#10b981',
+                        decision: '#8b5cf6',
+                        ability: '#f97316',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-gray-300 transition-colors duration-300">
+
+    <header class="bg-white dark:bg-slate-800 shadow-sm sticky top-0 z-50 transition-colors">
+        <div class="max-w-md mx-auto">
+             <div class="px-4 py-4 flex justify-between items-center bg-white dark:bg-slate-800 transition-colors">
+                <a href="../index.html" class="text-xl font-black text-slate-800 dark:text-white tracking-tight">
+                    <span class="text-indigo-600 dark:text-indigo-400">Daily</span> Pick Lab
+                </a>
+                <div class="flex items-center gap-3">
+                    <a href="../about.html" class="text-sm font-bold text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400">About</a>
+                    <a href="index.html" class="text-sm font-bold text-indigo-600 dark:text-indigo-400">Blog</a>
+                     <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition text-gray-500 dark:text-gray-400" aria-label="Toggle Dark Mode">
+                       🌓
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-md mx-auto px-4 py-6">
+         <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 mb-8 border border-gray-100 dark:border-slate-700 transition-colors">
+            <h1 class="text-2xl font-bold mb-4 text-slate-800 dark:text-white">일상 속의 몬테카를로 시뮬레이션 활용법: 우연으로 필연을 예측하다</h1>
+            <div class="flex items-center text-sm text-slate-400 mb-6">
+                <span>2024. 05. 24</span>
+                <span class="mx-2">•</span>
+                <span class="text-blue-500 font-bold">통계 & 시뮬레이션</span>
+            </div>
+            
+            <article class="prose prose-sm prose-slate dark:prose-invert max-w-none">
+                <p class="lead">
+                    영화 '닥터 스트레인지'에서 주인공이 수천만 개의 미래를 미리 보고 단 하나의 승리하는 경우를 찾아내는 장면을 기억하시나요? 
+                    현실 세계에서도 이와 비슷한 방법으로 미래를 예측하는 강력한 수학적 기법이 있습니다. 
+                    바로 <strong>'몬테카를로 시뮬레이션(Monte Carlo Simulation)'</strong>입니다. 
+                    이름에서 알 수 있듯이, 이 기법은 도박의 도시 몬테카를로 카지노에서 영감을 받아 탄생했습니다.
+                </p>
+
+                <h2>1. 몬테카를로 시뮬레이션이란?</h2>
+                <p>
+                    몬테카를로 시뮬레이션은 <strong>무작위 난수(Random Number)</strong>를 반복적으로 생성하여, 
+                    복잡하고 불확실한 문제의 근사치 해답을 찾아내는 알고리즘입니다. 
+                    쉽게 말해 "주사위를 100만 번 던져보면, 1이 나올 확률이 1/6에 가까워질 것이다"라는 
+                    <strong>큰 수의 법칙(Law of Large Numbers)</strong>을 컴퓨터를 이용해 빠르게 구현하는 것입니다.
+                </p>
+                <div class="bg-slate-100 dark:bg-slate-700 p-4 rounded-lg my-4 font-mono text-sm leading-relaxed">
+                    <strong>기본 원리:</strong><br>
+                    1. 가능한 입력값의 범위를 정의한다.<br>
+                    2. 그 범위 내에서 무작위로 값을 선택한다 (난수 생성).<br>
+                    3. 선택된 값으로 계산(실험)을 수행한다.<br>
+                    4. 이 과정을 수천, 수만 번 반복하여 결과의 분포를 분석한다.
+                </div>
+
+                <h2>2. 원주율(π) 구하기: 가장 직관적인 예시</h2>
+                <p>
+                    가장 유명한 예시는 정사각형 안에 원을 그려놓고, 
+                    무작위로 점(다트)을 던져서 원 안에 들어간 점의 개수를 세는 것입니다.
+                </p>
+                <ul>
+                    <li>정사각형의 넓이 = 4</li>
+                    <li>내접하는 원의 넓이 = \(\pi\) (반지름이 1일 때)</li>
+                    <li>전체 점의 개수 : 원 안의 점 개수 = 4 : \(\pi\)</li>
+                </ul>
+                <p>
+                    점을 1,000개만 던져도 \(\pi\) 값이 대략 3.1415...에 가깝게 나온다는 것을 확인할 수 있습니다. 
+                    이처럼 정확한 공식을 모르더라도, 무수히 많은 시행착오(Simulation)를 통해 정답에 접근할 수 있다는 것이 몬테카를로의 핵심입니다.
+                </p>
+
+                <h2>3. 일상생활에서의 활용: 나의 은퇴 자금 계산기</h2>
+                <p>
+                    금융 분야에서는 이미 필수적인 도구입니다. 
+                    "내가 30년 뒤에 은퇴할 때 얼마를 모을 수 있을까?"라는 질문에는 수많은 변수가 존재합니다. 
+                    (주식 수익률, 인플레이션, 월급 인상률, 예상치 못한 병원비 등)
+                </p>
+                <p>
+                    단순히 "매년 5%씩 오를 거야"라고 가정하는 대신, 
+                    몬테카를로 시뮬레이션을 돌리면 
+                    "주식이 폭락할 확률 10%, 대박 날 확률 5%..." 등 모든 변수를 고려하여 
+                    <strong>1만 가지의 가능한 미래 시나리오</strong>를 만들어줍니다. 
+                    그리고 그중 "내가 파산하지 않을 확률은 85%입니다"와 같은 확률적인 결론을 도출해 줍니다.
+                </p>
+
+                <h2>4. 로또 번호 생성과 몬테카를로</h2>
+                <p>
+                    Daily Pick Lab의 로또 번호 생성기에도 이와 유사한 원리가 숨어 있습니다. 
+                    단순히 1~45 중 6개를 뽑는 것이 아니라, 
+                    수만 번의 가상 추첨을 통해 
+                    "특정 패턴이 과도하게 몰리지 않도록" 조정하거나, 
+                    "역대 당첨 번호와 유사성(너무 똑같은 번호는 피함)"을 분석하는 데 시뮬레이션 기법을 활용할 수 있습니다.
+                </p>
+                <p>
+                    물론 로또는 독립 시행이므로 다음 회차 번호를 '예측'하는 것은 불가능합니다. 
+                    하지만 몬테카를로 시뮬레이션은 
+                    "가장 덜 멍청한 베팅(Least Stupid Betting)"을 선택하는 데 도움을 줄 수 있습니다. 
+                    예를 들어, 1, 2, 3, 4, 5, 6을 찍는 사람보다 
+                    무작위성이 충분히 검증된 번호를 찍는 사람이 
+                    만약 당첨되었을 때 <strong>혼자 독식할 확률(기댓값)</strong>이 더 높다는 계산이 나오기 때문입니다.
+                </p>
+
+                <h2>5. 결론: 불확실성을 다루는 지혜</h2>
+                <p>
+                    세상은 예측 불가능한 변수들로 가득 차 있습니다. 
+                    우리는 모든 것을 통제할 수 없지만, 
+                    몬테카를로 시뮬레이션처럼 <strong>'일어날 수 있는 모든 가능성'</strong>을 고려하고 대비할 수는 있습니다.
+                </p>
+                <p>
+                    우연에 맡기는 것 같아 보이지만, 그 속에서 필연적인 법칙을 찾아내는 것. 
+                    이것이 바로 확률과 통계가 우리에게 주는 삶의 지혜가 아닐까요?
+                </p>
+
+                <hr class="my-8 border-gray-200 dark:border-gray-700">
+                
+                <h3 class="text-lg font-bold">참고 자료</h3>
+                <ul class="list-disc pl-5 text-sm text-slate-500">
+                    <li>Metropolis, N., & Ulam, S. (1949). <em>The Monte Carlo Method</em>. Journal of the American Statistical Association.</li>
+                    <li>Silver, N. (2012). <em>The Signal and the Noise: Why So Many Predictions Fail-but Some Don't</em>. Penguin Books.</li>
+                </ul>
+
+            </article>
+        </div>
+        
+        <div class="text-center">
+            <a href="index.html" class="inline-block bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-xl transition shadow-lg shadow-indigo-200 dark:shadow-none">
+                목록으로 돌아가기
+            </a>
+        </div>
+    </main>
+
+    <footer class="bg-slate-800 dark:bg-slate-900 text-white py-10 mt-12 transition-colors">
+        <div class="max-w-md mx-auto px-4 text-center">
+            <h2 class="font-bold text-xl mb-2">Daily Pick Lab</h2>
+            <div class="border-t border-slate-700 pt-4">
+               <p class="text-xs text-slate-500 mb-2">
+                    <a href="../terms.html" class="hover:text-white transition">이용약관</a> | 
+                    <a href="../privacy.html" class="hover:text-white transition">개인정보처리방침</a>
+                </p>
+                <p class="text-xs text-slate-500">
+                    © 2024 Daily Pick Lab. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const updateTheme = () => {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        };
+        updateTheme();
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', () => {
+             if (document.documentElement.classList.contains('dark')) {
+                localStorage.theme = 'light';
+            } else {
+                localStorage.theme = 'dark';
+            }
+            updateTheme();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>확률의 수학: 로또 조합은 어떻게 작동하는가 - Daily Pick Lab</title>
+    <meta name="description" content="로또 1등 당첨 확률 814만 분의 1의 수학적 비밀. 조합 공식(nCr)과 독립 시행, 큰 수의 법칙을 통해 알아보는 로또의 세계.">
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        luck: '#10b981',
+                        decision: '#8b5cf6',
+                        ability: '#f97316',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-gray-300 transition-colors duration-300">
+
+    <header class="bg-white dark:bg-slate-800 shadow-sm sticky top-0 z-50 transition-colors">
+        <div class="max-w-md mx-auto">
+             <div class="px-4 py-4 flex justify-between items-center bg-white dark:bg-slate-800 transition-colors">
+                <a href="../index.html" class="text-xl font-black text-slate-800 dark:text-white tracking-tight">
+                    <span class="text-indigo-600 dark:text-indigo-400">Daily</span> Pick Lab
+                </a>
+                <div class="flex items-center gap-3">
+                    <a href="../about.html" class="text-sm font-bold text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400">About</a>
+                    <a href="index.html" class="text-sm font-bold text-indigo-600 dark:text-indigo-400">Blog</a>
+                     <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition text-gray-500 dark:text-gray-400" aria-label="Toggle Dark Mode">
+                       🌓
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-md mx-auto px-4 py-6">
+         <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 mb-8 border border-gray-100 dark:border-slate-700 transition-colors">
+            <h1 class="text-2xl font-bold mb-4 text-slate-800 dark:text-white">확률의 수학: 로또 조합은 어떻게 작동하는가 ($nCr$ 공식)</h1>
+            <div class="flex items-center text-sm text-slate-400 mb-6">
+                <span>2024. 05. 20</span>
+                <span class="mx-2">•</span>
+                <span class="text-green-500 font-bold">수학 & 로또</span>
+            </div>
+            
+            <article class="prose prose-sm prose-slate dark:prose-invert max-w-none">
+                <p class="lead">
+                    "이번 주는 꼭 당첨되겠지?" 매주 토요일 오후 8시 45분, 수많은 사람들의 희망이 교차하는 순간입니다. 
+                    하지만 수학적으로 로또 1등에 당첨될 확률은 얼마나 될까요? 
+                    그리고 명당 판매점에서 사면 정말 당첨 확률이 올라갈까요? 
+                    오늘은 로또 속에 숨겨진 <strong>조합(Combination) 수학</strong>과 <strong>독립 시행</strong>의 비밀을 파헤쳐 봅니다.
+                </p>
+
+                <h2>1. 로또 당첨 확률 계산하기: 814만 분의 1의 의미</h2>
+                <p>
+                    대한민국의 로또 6/45는 1부터 45까지의 숫자 중 서로 다른 6개의 숫자를 선택하여 맞추는 게임입니다. 
+                    순서는 상관없습니다. 1, 2, 3, 4, 5, 6을 뽑든 6, 5, 4, 3, 2, 1을 뽑든 결과는 같습니다.
+                    이때 사용하는 수학 공식이 바로 <strong>조합(Combination)</strong>, 기호로는 \( _nC_r \)입니다.
+                </p>
+                <div class="bg-slate-100 dark:bg-slate-700 p-4 rounded-lg my-4 text-center font-mono text-sm">
+                    $$ _{45}C_6 = \frac{45 \times 44 \times 43 \times 42 \times 41 \times 40}{6 \times 5 \times 4 \times 3 \times 2 \times 1} $$
+                </div>
+                <p>
+                    이를 계산해보면 다음과 같습니다.
+                </p>
+                <ul>
+                    <li>분자: 45 × 44 × 43 × 42 × 41 × 40 = 5,864,443,200</li>
+                    <li>분모: 6 × 5 × 4 × 3 × 2 × 1 = 720</li>
+                    <li>결과: 5,864,443,200 / 720 = <strong>8,145,060</strong></li>
+                </ul>
+                <p>
+                    즉, 가능한 모든 번호의 조합은 <strong>8,145,060가지</strong>입니다. 
+                    여러분이 로또 한 게임(1,000원)을 샀을 때, 1등에 당첨될 확률은 정확히 <strong>814만 5천 60분의 1</strong>, 
+                    백분율로는 약 <strong>0.000012%</strong>입니다.
+                </p>
+                <p>
+                    이 확률이 얼마나 낮은지 감이 안 오시나요? 
+                    벼락을 맞을 확률이 약 60만 분의 1이라고 하니, 로또 1등 당첨은 길을 가다가 벼락을 연속으로 2번 맞는 것보다 어렵다는 농담이 수학적으로는 과장이지만, 체감적으로는 비슷한 수준의 기적임을 알 수 있습니다.
+                </p>
+
+                <h2>2. 독립 시행의 오류: "이번엔 내 차례야"</h2>
+                <p>
+                    많은 사람들이 범하는 오류 중 하나가 <strong>'도박사의 오류(Gambler's Fallacy)'</strong>입니다. 
+                    "지난 10주 동안 1번이 한 번도 안 나왔으니, 이번 주에는 1번이 나올 확률이 높을 거야!"라고 생각하는 것이죠.
+                </p>
+                <p>
+                    하지만 로또 추첨 기계는 기억력이 없습니다. 지난 주에 어떤 공이 나왔는지 기억하지 못합니다. 
+                    매주 추첨은 <strong>독립 시행(Independent Trial)</strong>입니다. 
+                    동전을 던져 앞면이 10번 연속 나왔다고 해서, 11번째에 뒷면이 나올 확률이 높아지지 않는 것과 같습니다. 
+                    11번째 동전 던지기에서도 앞면이 나올 확률은 여전히 50%입니다.
+                </p>
+                
+                <h2>3. 로또 명당의 진실: 확률인가 마케팅인가?</h2>
+                <p>
+                    그렇다면 왜 특정 로또 판매점에서는 1등 당첨자가 많이 나올까요? 
+                    그곳의 터가 좋아서일까요? 아니면 기계가 특별한 걸까요? 
+                    수학적인 정답은 <strong>"판매량이 압도적으로 많기 때문"</strong>입니다.
+                </p>
+                <p>
+                    예를 들어, A라는 동네 판매점은 일주일에 100장을 팝니다. 
+                    B라는 유명한 명당은 전국에서 사람이 몰려 일주일에 10,000장을 팝니다.
+                    당연히 B 판매점에서는 1등 당첨자가 나올 확률이 A 판매점보다 100배 높습니다. 
+                    하지만 이것은 <strong>'판매점의 당첨 확률'</strong>이지, 
+                    그곳에서 표를 산 <strong>'당신(개인)의 당첨 확률'</strong>은 아닙니다. 
+                    어디서 사든 당신의 확률은 여전히 814만 분의 1입니다.
+                </p>
+
+                <h2>4. 수동 vs 자동, 그리고 패턴의 심리학</h2>
+                <p>
+                    많은 분들이 수동으로 번호를 고를 때 1, 2, 3, 4, 5, 6 같은 연속 번호나, 
+                    7, 14, 21, 28, 35, 42 같은 규칙적인 패턴은 피하려고 합니다. 
+                    "설마 저런 번호가 나오겠어?"라고 생각하기 때문이죠.
+                </p>
+                <p>
+                    하지만 수학적으로 <strong>{1, 2, 3, 4, 5, 6}</strong> 조합이 나올 확률과 
+                    <strong>{12, 23, 34, 41, 42, 45}</strong> 조합이 나올 확률은 완벽하게 <strong>동일</strong>합니다. 
+                    단지 우리가 보기에 '무작위처럼 보이지 않을' 뿐입니다.
+                </p>
+                <p>
+                    만약 당신이 1, 2, 3, 4, 5, 6을 찍어서 1등이 되었다면, 
+                    아마 수천 명의 다른 당첨자와 상금을 나눠 가져야 할 것입니다. 
+                    사람들은 패턴을 피하려 하지만, 아이러니하게도 '패턴을 피하려는 심리' 때문에 
+                    오히려 남들과 겹치지 않는 번호를 고르려다 비슷한 번호를 고르는 경향이 있습니다.
+                </p>
+
+                <h2>5. 결론: 로또를 즐기는 현명한 자세</h2>
+                <p>
+                    수학은 우리에게 냉정한 진실을 말해줍니다. 로또는 돈을 벌기 위한 수단(투자)으로는 최악의 선택입니다. 
+                    기댓값(Expectation Value)을 계산해보면, 1,000원을 투자했을 때 돌려받을 수 있는 평균 금액은 500원 미만입니다.
+                </p>
+                <p>
+                    하지만 우리는 왜 로또를 살까요? 바로 <strong>'일주일의 희망'</strong>이라는 효용 때문입니다. 
+                    1,000원으로 일주일 동안 행복한 상상을 할 수 있다면, 그것으로 충분한 가치가 있을지도 모릅니다.
+                </p>
+                <p>
+                    Daily Pick Lab의 생성기는 여러분에게 당첨을 보장하지 않습니다 (수학적으로 불가능합니다). 
+                    하지만 여러분이 '운'을 시험하는 그 과정을 조금 더 재밌고, 과학적으로 즐길 수 있도록 돕습니다. 
+                    오늘 재미로, 나만의 전략을 세워 번호를 생성해보는 것은 어떨까요?
+                </p>
+                
+                <hr class="my-8 border-gray-200 dark:border-gray-700">
+                
+                <h3 class="text-lg font-bold">참고 자료 및 더 읽어보기</h3>
+                <ul class="list-disc pl-5 text-sm text-slate-500">
+                    <li>Kahneman, D. (2011). <em>Thinking, Fast and Slow</em>. Farrar, Straus and Giroux.</li>
+                    <li>Thaler, R. H., & Sunstein, C. R. (2008). <em>Nudge: Improving Decisions About Health, Wealth, and Happiness</em>. Yale University Press.</li>
+                    <li>한국 복권위원회 공식 홈페이지 (통계 자료)</li>
+                </ul>
+
+            </article>
+        </div>
+        
+        <div class="text-center">
+            <a href="index.html" class="inline-block bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-xl transition shadow-lg shadow-indigo-200 dark:shadow-none">
+                목록으로 돌아가기
+            </a>
+        </div>
+    </main>
+
+    <footer class="bg-slate-800 dark:bg-slate-900 text-white py-10 mt-12 transition-colors">
+        <div class="max-w-md mx-auto px-4 text-center">
+            <h2 class="font-bold text-xl mb-2">Daily Pick Lab</h2>
+            <div class="border-t border-slate-700 pt-4">
+                <p class="text-xs text-slate-500 mb-2">
+                    <a href="../terms.html" class="hover:text-white transition">이용약관</a> | 
+                    <a href="../privacy.html" class="hover:text-white transition">개인정보처리방침</a>
+                </p>
+                <p class="text-xs text-slate-500">
+                    © 2024 Daily Pick Lab. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const updateTheme = () => {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        };
+        updateTheme();
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', () => {
+             if (document.documentElement.classList.contains('dark')) {
+                localStorage.theme = 'light';
+            } else {
+                localStorage.theme = 'dark';
+            }
+            updateTheme();
+        });
+    </script>
+</body>
+</html>
