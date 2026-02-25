@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use Monte Carlo Simulation in Daily Life - Daily Pick Lab</title>
+    <meta name="description" content="The Monte Carlo method predicts the uncertain future using random numbers. Beyond the gambler's fallacy, how to see the world through mathematical modeling.">
+    <link rel="canonical" href="https://product1-avr.pages.dev/blog/monte-carlo-simulation_en">
+    <link rel="alternate" hreflang="ko" href="https://product1-avr.pages.dev/blog/monte-carlo-simulation">
+    <link rel="alternate" hreflang="en" href="https://product1-avr.pages.dev/blog/monte-carlo-simulation_en">
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        luck: '#10b981',
+                        decision: '#8b5cf6',
+                        ability: '#f97316',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-gray-300 transition-colors duration-300">
+
+    <header class="bg-white dark:bg-slate-800 shadow-sm sticky top-0 z-50 transition-colors">
+        <div class="max-w-md mx-auto">
+             <div class="px-4 py-4 flex justify-between items-center bg-white dark:bg-slate-800 transition-colors">
+                <a href="../index_en.html" class="text-xl font-black text-slate-800 dark:text-white tracking-tight">
+                    <span class="text-indigo-600 dark:text-indigo-400">Daily</span> Pick Lab
+                </a>
+                <div class="flex items-center gap-3">
+                    <a href="../about.html" class="text-sm font-bold text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400">About</a>
+                    <a href="index_en.html" class="text-sm font-bold text-indigo-600 dark:text-indigo-400">Blog</a>
+                     <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition text-gray-500 dark:text-gray-400" aria-label="Toggle Dark Mode">
+                       🌓
+                    </button>
+                    <a href="monte-carlo-simulation.html" class="text-xs font-bold text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-300 px-2 py-1 rounded border border-gray-200 dark:border-gray-600 transition">
+                        KO
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-md mx-auto px-4 py-6">
+         <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 mb-8 border border-gray-100 dark:border-slate-700 transition-colors">
+            <h1 class="text-2xl font-bold mb-4 text-slate-800 dark:text-white">How to Use Monte Carlo Simulation in Daily Life: Predicting Inevitability with Coincidence</h1>
+            <div class="flex items-center text-sm text-slate-400 mb-6">
+                <span>May 24, 2024</span>
+                <span class="mx-2">•</span>
+                <span class="text-blue-500 font-bold">Statistics & Simulation</span>
+            </div>
+            
+            <article class="prose prose-sm prose-slate dark:prose-invert max-w-none">
+                <p class="lead">
+                    Do you remember the scene in the movie 'Doctor Strange' where the protagonist foresees tens of millions of futures to find the one and only winning scenario? 
+                    In the real world, there is a powerful mathematical technique that predicts the future in a very similar manner. 
+                    It is the <strong>'Monte Carlo Simulation'</strong>. 
+                    As the name suggests, this technique was inspired by the casinos in the gambling city of Monte Carlo.
+                </p>
+
+                <h2>1. What is the Monte Carlo Simulation?</h2>
+                <p>
+                    The Monte Carlo Simulation is an algorithm that repeatedly generates <strong>Random Numbers</strong> to find the approximate solution to a complex and uncertain problem. 
+                    Simply put, it is a method of rapidly utilizing computers to manifest the <strong>Law of Large Numbers</strong>: "If you roll a die 1,000,000 times, the probability of getting a 1 will approach 1/6."
+                </p>
+                <div class="bg-slate-100 dark:bg-slate-700 p-4 rounded-lg my-4 font-mono text-sm leading-relaxed">
+                    <strong>Basic Principles:</strong><br>
+                    1. Define a domain of possible inputs.<br>
+                    2. Generate inputs randomly from a probability distribution over the domain.<br>
+                    3. Perform a deterministic computation on the inputs.<br>
+                    4. Aggregate the results over tens of thousands of iterations to analyze the distribution of the final output.
+                </div>
+
+                <h2>2. Calculating Pi (π): The Most Intuitive Example</h2>
+                <p>
+                    The most famous example is drawing a circle inside a square, throwing random dots (darts) at it, and counting the number of dots that land inside the circle.
+                </p>
+                <ul>
+                    <li>Area of the square = 4</li>
+                    <li>Area of the inscribed circle = \(\pi\) (when the radius is 1)</li>
+                    <li>Total number of dots : Dots inside the circle = 4 : \(\pi\)</li>
+                </ul>
+                <p>
+                    Even if you throw just 1,000 dots, you can confirm that the simulated \(\pi\) value gets very close to roughly 3.1415... 
+                    The core philosophy of Monte Carlo is that even without knowing the precise mathematical formula, you can approach the correct answer through infinite trial and error (Simulation).
+                </p>
+
+                <h2>3. Application in Daily Life: My Retirement Fund Calculator</h2>
+                <p>
+                    It is already an indispensable tool in the finance sector. 
+                    Countless variables exist for the question, "How much money will I have collected when I retire in 30 years?" 
+                    (Stock market returns, inflation, salary increase rates, unexpected medical bills, etc.)
+                </p>
+                <p>
+                    Instead of simply assuming, "It will go up by 5% every year," 
+                    running a Monte Carlo simulation takes all variables into account—"10% probability of a market crash, 5% probability of a massive bull run..."—and generates <strong>10,000 possible future scenarios</strong>. 
+                    It then derives a probabilistic conclusion out of that set, like: "Your probability of not going bankrupt is 85%."
+                </p>
+
+                <h2>4. Generating Lotto Numbers and Monte Carlo</h2>
+                <p>
+                    A very similar principle is hidden inside Daily Pick Lab's Lotto Number Generator. 
+                    Rather than purely picking 6 numbers out of 1~45, simulation techniques can be utilized through tens of thousands of mock draws to ensure "specific patterns don't cluster excessively" or analyze "similarities against past winning numbers (avoiding exact identical matches)."
+                </p>
+                <p>
+                    Of course, the Lotto represents an independent set of events, making it physically impossible to 'predict' the next draw's numbers. 
+                    However, Monte Carlo simulations can help you make the <strong>"Least Stupid Bet"</strong>. 
+                    For example, calculations prove that a person picking a sufficiently randomized set of numbers possesses a significantly higher <strong>Expectation Value (the probability of hoarding the jackpot alone)</strong> when they do win, compared to someone picking 1, 2, 3, 4, 5, 6.
+                </p>
+
+                <h2>5. Conclusion: The Wisdom to Handle Uncertainty</h2>
+                <p>
+                    The world is overflowing with unpredictable variables. 
+                    We cannot control everything, but just like the Monte Carlo simulation, we can consider and prepare for <strong>"every possible outcome that could happen."</strong>
+                </p>
+                <p>
+                    It seems like entrusting things to coincidence, yet finding the inevitable law within it. 
+                    Isn't this the ultimate wisdom about life that probability and statistics bestow upon us?
+                </p>
+
+                <hr class="my-8 border-gray-200 dark:border-gray-700">
+                
+                <h3 class="text-lg font-bold">References</h3>
+                <ul class="list-disc pl-5 text-sm text-slate-500">
+                    <li>Metropolis, N., & Ulam, S. (1949). <em>The Monte Carlo Method</em>. Journal of the American Statistical Association.</li>
+                    <li>Silver, N. (2012). <em>The Signal and the Noise: Why So Many Predictions Fail-but Some Don't</em>. Penguin Books.</li>
+                </ul>
+
+            </article>
+        </div>
+        
+        <div class="text-center">
+            <a href="index_en.html" class="inline-block bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-xl transition shadow-lg shadow-indigo-200 dark:shadow-none">
+                Back to List
+            </a>
+        </div>
+    </main>
+
+    <footer class="bg-slate-800 dark:bg-slate-900 text-white py-10 mt-12 transition-colors">
+        <div class="max-w-md mx-auto px-4 text-center">
+            <h2 class="font-bold text-xl mb-2">Daily Pick Lab</h2>
+            <div class="border-t border-slate-700 pt-4">
+               <p class="text-xs text-slate-500 mb-2">
+                    <a href="../terms.html" class="hover:text-white transition">Terms of Service</a> | 
+                    <a href="../privacy.html" class="hover:text-white transition">Privacy Policy</a>
+                </p>
+                <p class="text-xs text-slate-500">
+                    © 2024 Daily Pick Lab. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const updateTheme = () => {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        };
+        updateTheme();
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', () => {
+             if (document.documentElement.classList.contains('dark')) {
+                localStorage.theme = 'light';
+            } else {
+                localStorage.theme = 'dark';
+            }
+            updateTheme();
+        });
+    </script>
+</body>
+</html>

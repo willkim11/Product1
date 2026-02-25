@@ -12,6 +12,8 @@
     <meta name="description" content="초정밀 반응속도 테스트(Reaction Speed Test). 당신의 뇌와 손가락은 얼마나 빠를까요? 상위 1% 프로게이머 수준에 도전해보세요. 평균 기록 통계 제공.">
     <meta name="keywords" content="반응속도 테스트, 반응속도 측정, 클릭 속도, 에이밍 테스트, 순발력 게임, Human Benchmark, 동체시력">
     <link rel="canonical" href="https://product1-avr.pages.dev/reaction-test">
+    <link rel="alternate" hreflang="ko" href="https://product1-avr.pages.dev/reaction-test">
+    <link rel="alternate" hreflang="en" href="https://product1-avr.pages.dev/reaction-test_en">
     
     <!-- Open Graph (SNS) -->
     <meta property="og:type" content="website">
@@ -137,63 +139,87 @@
                     <p>클릭해서 시작</p>
                 </div>
 
-                <div id="reaction-result" class="text-center bg-gray-50 dark:bg-slate-700/50 p-4 rounded-xl border border-gray-200 dark:border-slate-600 hidden">
+                <div id="reaction-result" class="text-center bg-gray-50 dark:bg-slate-700/50 p-4 rounded-xl border border-gray-200 dark:border-slate-600 hidden mb-4">
                     <!-- JS fills this -->
+                </div>
+                
+                <div id="reaction-share-container" class="hidden flex-col sm:flex-row gap-2 mt-4">
+                    <button id="reaction-share-kakao" class="flex-1 bg-[#FEE500] text-[#000000] font-bold py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-[#F4DC00] transition shadow-sm">
+                        <span class="text-xl leading-none">💬</span> 카카오톡 공유
+                    </button>
+                    <button id="reaction-share-twitter" class="flex-1 bg-[#000000] text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-800 transition shadow-sm">
+                        <span class="text-xl leading-none">𝕏</span> 공유하기
+                    </button>
+                    <button id="reaction-share-link" class="flex-1 bg-gray-200 text-gray-700 dark:bg-slate-700 dark:text-gray-200 font-bold py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-300 dark:hover:bg-slate-600 transition shadow-sm">
+                        🔗 링크 복사
+                    </button>
                 </div>
             </div>
         </section>
 
-        <!-- SEO Content -->
+        <!-- SEO Content & Columns -->
         <article class="prose prose-sm prose-slate dark:prose-invert bg-white dark:bg-slate-800 p-6 rounded-xl border border-gray-100 dark:border-slate-700 transition-colors mb-8">
-            <h2 class="text-xl font-bold text-gray-800 dark:text-gray-100">⏱️ 연령별 평균 반응속도 (참고용)</h2>
-            <div class="overflow-x-auto my-4">
-                <table class="min-w-full text-sm">
-                    <thead class="bg-gray-50 dark:bg-slate-700">
-                        <tr>
-                            <th class="px-4 py-2 text-left">그룹</th>
-                            <th class="px-4 py-2 text-left">평균 속도 (ms)</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
-                        <tr><td class="px-4 py-2">프로게이머</td><td class="px-4 py-2 font-bold text-orange-500">130 ~ 200 ms</td></tr>
-                        <tr><td class="px-4 py-2">20대 일반인</td><td class="px-4 py-2">220 ~ 270 ms</td></tr>
-                        <tr><td class="px-4 py-2">30~40대</td><td class="px-4 py-2">270 ~ 350 ms</td></tr>
-                        <tr><td class="px-4 py-2">50대 이상</td><td class="px-4 py-2">350 ms ~</td></tr>
-                        <tr><td class="px-4 py-2">음주/피로 상태</td><td class="px-4 py-2 text-red-500">500 ms ~</td></tr>
-                    </tbody>
-                </table>
-            </div>
+            <h2 class="text-xl font-bold text-gray-800 dark:text-gray-100">⏱️ 인지과학이 밝히는 반응속도(Reaction Time)의 비밀</h2>
+            <p>
+                단순히 '화면이 초록색으로 변할 때 클릭하는 것'처럼 보이는 이 테스트의 이면에는 매우 복잡하고 정교한 인지과학적 메커니즘이 숨어있습니다. 인간의 시각적 반응 속도(Visual Reaction Time)는 단순히 손가락 근육의 속도가 아니라, <strong>1) 망막을 통한 시각 정보의 입력 → 2) 시신경을 통한 시각 피질 전달 → 3) 전두엽의 상황 판단 및 운동 명령 생성 → 4) 척수를 거쳐 손가락 근육으로 이어지는 운동 신경으로의 전기적 신호 전달</strong>이라는 일련의 뇌신경과학적 프로토콜이 얼마나 매끄럽게 작동하는지를 측정하는 지표입니다.
+            </p>
+            
+            <h3 class="text-lg font-bold mt-6">📉 에이징 커브(Aging Curve)와 뇌의 노화</h3>
+            <p>
+                일반적으로 인간의 신경 전달 속도는 24~25세 무렵에 정점을 찍고 그 이후부터 서서히 하락하는 이른바 '에이징 커브(Aging Curve)'를 겪게 됩니다. E-스포츠 프로게이머들이 20대 후반만 되어도 피지컬 유지에 큰 어려움을 겪는 이유가 바로 이 인지 처리 속도의 미세한 저하 때문입니다. 나이가 들면 신경 세포(뉴런)를 감싸고 있어 신호 전달 속도를 높여주는 '수초(Myelin Sheath)'가 서서히 얇아지면서 반응 속도가 밀리초(ms) 단위로 느려지게 됩니다.
+            </p>
 
-            <h3 class="text-lg font-bold mt-6">🚀 반응속도 향상시키는 방법 5가지</h3>
-            <ul class="list-disc pl-5 my-4 space-y-1">
-                <li><strong>충분한 수면:</strong> 피곤한 뇌는 신호 처리 속도가 급격히 느려집니다.</li>
-                <li><strong>카페인 섭취:</strong> 적당량의 커피는 일시적인 각성 효과를 줍니다.</li>
-                <li><strong>유산소 운동:</strong> 뇌로 가는 혈류량을 늘려 인지 기능을 최적화합니다.</li>
-                <li><strong>FPS 게임:</strong> 빠른 화면 전환에 반응하는 훈련을 꾸준히 하세요.</li>
-                <li><strong>수분 섭취:</strong> 탈수는 집중력 저하의 큰 원인입니다.</li>
+            <h3 class="text-lg font-bold mt-6">🧠 신경 가소성(Neuroplasticity): 희망의 증거</h3>
+            <p>
+                그렇다면 반응 속도는 나이가 들면 그저 떨어지기만 하는 것일까요? 다행히도 현대 뇌과학은 <strong>'신경 가소성(Neuroplasticity)'</strong>이라는 개념을 통해 뇌가 평생에 걸쳐 스스로를 재구성할 수 있음을 증명했습니다. 반복적인 자극과 훈련을 통해 뉴런 간의 새로운 시냅스 연결을 생성하고 강화할 수 있습니다. 
+            </p>
+
+            <h3 class="text-lg font-bold mt-6">🚀 일상에서 뇌의 반응속도를 극대화하는 방법</h3>
+            <ul class="list-disc pl-5 my-4 space-y-2">
+                <li>
+                    <strong>질 높은 수면(Sleep Quality):</strong> 반응속도를 떨어뜨리는 가장 치명적인 독은 '수면 부족'입니다. 수면 박탈 상태에서는 뇌의 전두엽 기능이 심각하게 둔화되어 알코올을 섭취한 것과 비슷한 수준의 인지 저하가 발생합니다.
+                </li>
+                <li>
+                    <strong>고강도 유산소 운동(Aerobic Exercise):</strong> 달리기나 수영과 같은 유산소 운동은 뇌로 가는 혈류량을 급격히 증가시키고, 신경 영양 인자(BDNF, 뇌유래신경영양인자)의 분비를 촉진하여 뇌 신경망의 노화를 막고 반응 속도를 예방합니다.
+                </li>
+                <li>
+                    <strong>게이미피케이션 인지 훈련:</strong> 본 웹사이트에서 제공하는 반응속도 테스트나, FPS(1인칭 슈팅) 게임, 리듬 게임 등은 시각 피질과 운동 피질 간의 협응성(Hand-Eye Coordination)을 극한으로 몰아붙여 신경 회로의 저항을 낮추는 훌륭한 훈련 도구입니다.
+                </li>
+                <li>
+                    <strong>적절한 각성 상태 유지:</strong> 커피(카페인) 섭취나 찬물 세수 등을 통해 부교감신경을 억제하고 교감신경을 활성화시키면 뇌를 일시적인 전투 상태(Fight or Flight)로 만들어 반응 시간을 크게 단축할 수 있습니다.
+                </li>
             </ul>
         </article>
         
         <!-- FAQ Section -->
         <section class="mb-8">
-            <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4 px-2">자주 묻는 질문</h3>
+            <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4 px-2">반응속도 테스트 자주 묻는 질문 (FAQ)</h3>
             <div class="space-y-4">
                 <details class="group bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-4 open:ring-1 open:ring-orange-400">
                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none">
-                        <span>제 반응속도가 너무 느려요.</span>
+                        <span>프로게이머들의 실제 반응속도(ms)는 어느 정도 수치인가요?</span>
                         <span class="transition group-open:rotate-180">▼</span>
                     </summary>
                     <div class="text-gray-600 dark:text-gray-400 mt-3 text-sm leading-relaxed">
-                        모니터의 주사율(Hz)이나 마우스의 입력 지연(Input Lag) 장비 탓일 수도 있습니다! 하지만 대부분은 수면 부족이 원인입니다.
+                        일반 성인의 평균 반응속도는 약 250ms ~ 300ms (0.25~0.3초) 대역에 분포합니다. 그러나 타고난 동체 시력과 강도 높은 훈련을 거친 탑클래스 프로게이머(특히 FPS 장르나 리그 오브 레전드 선수)들의 경우 평균 150ms ~ 180ms 대의 경이로운 수치를 기록합니다. 인간의 생물학적 한계치에 매우 근접한 속도입니다.
                     </div>
                 </details>
                 <details class="group bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-4">
                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none">
-                        <span>프로게이머 기준은 어느 정도인가요?</span>
+                        <span>제 반응속도가 400ms가 넘어갑니다. 뇌에 문제가 있는 걸까요?</span>
                         <span class="transition group-open:rotate-180">▼</span>
                     </summary>
                     <div class="text-gray-600 dark:text-gray-400 mt-3 text-sm leading-relaxed">
-                        보통 시각 반응 속도가 200ms(0.2초) 이내로 들어와야 프로게이머 레벨이라고 볼 수 있습니다. 페이커 등 전설적인 선수는 100ms 중반대를 기록하기도 합니다.
+                        전혀 우려하실 필요 없습니다. 웹 브라우저 기반의 측정 결과는 본인의 순수한 신경 전달 속도 외에도 수많은 장비의 영향을 받습니다. 60Hz의 일반 사무용 모니터, 블루투스 무선 마우스의 입력 지연(Input Lag), 컴퓨터의 백그라운드 프로세스 부하 등 '시스템 지연(System Latency)'이 최소 50ms에서 많게는 100ms 이상 추가된 결과일 확률이 높습니다. 정확한 본인 기량을 보려면 144Hz 이상의 주사율을 가진 게이밍 모니터와 유선 마우스 환경이 필요합니다.
+                    </div>
+                </details>
+                <details class="group bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-4">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none">
+                        <span>시각 반응속도와 청각 반응속도 중 어느 쪽이 더 빠르나요?</span>
+                        <span class="transition group-open:rotate-180">▼</span>
+                    </summary>
+                    <div class="text-gray-600 dark:text-gray-400 mt-3 text-sm leading-relaxed">
+                        매우 흥미롭게도 의학적 테스트 결과에 따르면 <strong>'청각 반응속도(Auditory Reaction Time)'가 시각보다 약 30~50ms 더 빠릅니다.</strong> 시각 정보는 눈의 망막에 맺힌 후 복잡한 화학적 처리를 거쳐 시신경을 타고 뇌 뒤쪽 후두엽 시각 피질까지 도달해야 하는 긴 거리를 여행합니다. 반면 소리(청각) 정보는 고막에서 전기 신호로 바뀌어 뇌의 청각 피질까지 훨씬 짧고 단순한 경로로 전달되기 때문입니다. 육상 선수의 출발 신호가 빛이 아닌 총소리(Bang!)인 이유도 여기에 있습니다.
                     </div>
                 </details>
             </div>
@@ -229,6 +255,7 @@
             </div>
         </div>
     </footer>
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" integrity="sha384-TiCmbV6AUnR+N/zM0x2Y/eP5Pj1B20uowT246D2M8/NWeHovD6YyZ//M0Xk1A4hT" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 </html>

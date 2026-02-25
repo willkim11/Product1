@@ -12,6 +12,8 @@
     <meta name="description" content="AI 기반 무료 로또 번호 생성기. 홀짝 비율, 고정수/제외수 설정으로 당첨 확률을 높이는 스마트한 번호 추천 서비스입니다. 역대 당첨 통계와 전략도 확인하세요.">
     <meta name="keywords" content="로또 번호 생성기, 로또 번호 추천, 무료 로또, AI 로또 번호, 로또 당첨 번호, 로또 예상 번호">
     <link rel="canonical" href="https://product1-avr.pages.dev/lotto">
+    <link rel="alternate" hreflang="ko" href="https://product1-avr.pages.dev/lotto">
+    <link rel="alternate" hreflang="en" href="https://product1-avr.pages.dev/lotto_en">
     
     <!-- Open Graph (SNS) -->
     <meta property="og:type" content="website">
@@ -174,9 +176,22 @@
                 <button id="lotto-gen-btn" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-green-200 dark:shadow-none transition active:scale-95 mb-3">
                     행운 번호 생성하기 ✨
                 </button>
-                <button id="lotto-save-btn" class="w-full text-green-600 dark:text-green-400 text-sm font-bold hover:underline hidden">
-                    기록 저장하기
-                </button>
+                <div class="flex gap-2">
+                    <button id="lotto-save-btn" class="flex-1 text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 py-2 rounded-lg text-sm font-bold hover:bg-green-100 dark:hover:bg-green-900/40 transition hidden">
+                        💾 기록 저장
+                    </button>
+                </div>
+                <div id="lotto-share-container" class="hidden flex-col sm:flex-row gap-2 mt-4">
+                    <button id="lotto-share-kakao" class="flex-1 bg-[#FEE500] text-[#000000] font-bold py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-[#F4DC00] transition shadow-sm">
+                        <span class="text-xl leading-none">💬</span> 카카오톡 공유
+                    </button>
+                    <button id="lotto-share-twitter" class="flex-1 bg-[#000000] text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-800 transition shadow-sm">
+                        <span class="text-xl leading-none">𝕏</span> 공유하기
+                    </button>
+                    <button id="lotto-share-link" class="flex-1 bg-gray-200 text-gray-700 dark:bg-slate-700 dark:text-gray-200 font-bold py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-300 dark:hover:bg-slate-600 transition shadow-sm">
+                        🔗 링크 복사
+                    </button>
+                </div>
             </div>
 
             <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm p-4 mb-8 border border-transparent dark:border-slate-700 transition-colors">
@@ -188,57 +203,86 @@
             </div>
         </section>
 
-        <!-- SEO Content -->
+        <!-- SEO Content & Columns -->
         <article class="prose prose-sm prose-slate dark:prose-invert bg-white dark:bg-slate-800 p-6 rounded-xl border border-gray-100 dark:border-slate-700 transition-colors mb-8">
-            <h2 class="text-xl font-bold text-gray-800 dark:text-gray-100">💰 로또 당첨 확률 알아보기</h2>
-            <p>로또 6/45의 당첨 확률은 8,145,060분의 1입니다. 이는 벼락을 맞을 확률보다 낮다고 흔히 말합니다. 하지만 매주 당첨자는 나오고, 누군가는 그 행운의 주인공이 됩니다.</p>
-            
-            <h3 class="text-lg font-bold mt-6">📊 홀짝 비율별 통계</h3>
-            <ul class="list-disc pl-5 my-4">
-                <li><strong>3:3 (홀3 짝3)</strong>: 역대 가장 많이 나온 패턴 중 하나로, 통계적 균형을 의미합니다.</li>
-                <li><strong>4:2 또는 2:4</strong>: 그 다음으로 빈번한 패턴입니다.</li>
-                <li><strong>6:0 또는 0:6</strong>: 극단적인 패턴은 통계적으로 출현 빈도가 매우 낮습니다.</li>
+            <h2 class="text-xl font-bold text-gray-800 dark:text-gray-100">💰 로또 6/45, 확률의 함정과 통계학적 접근법</h2>
+            <p>
+                매주 수많은 사람들이 일확천금의 꿈을 안고 로또 6/45를 구매합니다. 로또 1등에 당첨될 수학적 확률은 <strong>8,145,060분의 1</strong>입니다. 흔히 '벼락에 맞을 확률보다 낮다'고 표현될 정도로 희박한 수치입니다. 하지만 놀랍게도 매주 당첨자는 어김없이 탄생합니다. 이는 우리가 단순히 '운(Luck)'의 영역으로 치부하는 로또 번호 추출에도, 수학과 통계학의 흥미로운 법칙들이 숨어있음을 의미합니다.
+            </p>
+
+            <h3 class="text-lg font-bold mt-6">🎲 '독립 시행'의 오해와 '큰 수의 법칙'</h3>
+            <p>
+                통계학에서 로또 추첨은 <strong>'독립 시행(Independent Trial)'</strong>의 대표적인 예입니다. 이는 저번 주에 당첨된 번호 조합이 이번 주 추첨 결과에 수학적으로 전혀 영향을 미치지 않음을 뜻합니다. 예를 들어, 1번이 지난 5주 연속으로 나왔다고 해서 오늘 1번이 나올 확률이 낮아지는 것은 아닙니다. 45개의 공 중 하나가 뽑힐 확률은 매번 똑같이 1/45입니다.
+            </p>
+            <p>
+                하지만 여기서 우리는 <strong>'큰 수의 법칙(Law of Large Numbers)'</strong>이라는 또 다른 통계적 진리에 주목해야 합니다. 시행 횟수가 무한대에 가까워질수록, 각 사건의 상대적 빈도는 수학적 확률에 수렴한다는 법칙입니다. 즉, 로또 추첨이 영원히 계속된다면 1번부터 45번까지의 공이 뽑히는 횟수는 결국 모두 동일해져야 합니다. 많은 로또 분석가들이 오랫동안 등장하지 않은 이른바 '콜드 넘버(Cold Number)'에 주목하는 이유가 바로 이것입니다. 단기적으로는 무작위일지 몰라도, 장기적인 관점에서는 패턴 회귀의 성질을 갖는다고 믿기 때문입니다.
+            </p>
+
+            <h3 class="text-lg font-bold mt-6">📊 필터링 알고리즘: 홀짝 비율과 제외수의 마법</h3>
+            <p>
+                Daily Pick Lab의 로또 번호 생성기는 단순한 랜덤 함수(`Math.random()`)를 넘어, 사용자가 직접 통계적 변수를 통제할 수 있는 고급 필터링 알고리즘을 제공합니다. 수학적 당첨 확률 자체를 바꿀 수는 없지만, <strong>'비합리적인 조합'을 걸러내어 기대값을 높이는 심리적, 통계적 전략</strong>을 구사할 수 있습니다.
+            </p>
+            <ul class="list-disc pl-5 my-4 space-y-2">
+                <li>
+                    <strong>홀짝 비율 (Odd-Even Ratio):</strong> 
+                    과거 수천 회차의 당첨 번호를 분석해보면, 홀수 3개와 짝수 3개(3:3 패턴) 또는 4:2 패턴이 당첨 조합의 대다수를 차지합니다. 홀수만 6개이거나 짝수만 6개인 극단적인 몰림 현상은 통계 곡선에서 극단값(Outlier)에 해당합니다. 우리의 생성기는 이러한 확률적 정규분포를 따르도록 조합의 구조를 선별합니다.
+                </li>
+                <li>
+                    <strong>고정수 (Include Number):</strong> 
+                    사용자가 특별히 의미를 두는 숫자(생일, 기념일, 꿈에서 본 숫자 등)를 시스템 번호 풀에 강제로 포함시킵니다. 알고리즘은 이 숫자를 변수로 고정한 채 나머지 번호만을 최적화하여 추출합니다.
+                </li>
+                <li>
+                    <strong>제외수 (Exclude Numbers):</strong> 
+                    완벽한 분석을 바탕으로 '이번 회차에는 절대 나오지 않을 것 같은 숫자'를 최소 1개에서 3개까지 배제할 수 있습니다. 45개 중 3개를 제외하면 모집단이 42개로 줄어들며, 전체 가능한 조합의 수가 800만 개에서 약 524만 개로 대폭 감소하여, 체감 상 분석의 정확도를 크게 향상시킬 수 있습니다.
+                </li>
             </ul>
 
-            <h3 class="text-lg font-bold mt-6">💡 로또 번호 선택 전략 5가지</h3>
-            <ol class="list-decimal pl-5 my-4 space-y-2">
-                <li><strong>연속 번호 피하기:</strong> 1, 2, 3, 4, 5, 6 같은 연속 번호는 피하는 것이 좋습니다.</li>
-                <li><strong>끝수 맞추기:</strong> 끝자리(예: 1, 11, 21...)를 다양하게 분배하세요.</li>
-                <li><strong>고저 비율:</strong> 1~22(저)와 23~45(고) 의 숫자를 적절히 섞으세요.</li>
-                <li><strong>콜드 번호와 핫 번호:</strong> 최근 자주 나온 번호(핫)와 오랫동안 안 나온 번호(콜드)를 조합하세요.</li>
-                <li><strong>나만의 고정수:</strong> 본인만의 의미 있는 숫자를 하나 정도 섞는 것은 긍정적인 믿음을 줍니다.</li>
-            </ol>
+            <h3 class="text-lg font-bold mt-6">💡 기대값(Expected Value)과 건전한 소비의 심리학</h3>
+            <p>
+                경제학적으로 로또의 기대값은 구매 금액인 1,000원에 미치지 못합니다. (보통 500원 내외로 수렴합니다). 즉, 로또는 투자의 대상이 아니라 '소비'의 영역입니다. 일주일 동안 "내가 당첨된다면 무엇을 할까?"라는 행복한 상상력을 구매하는 엔터테인먼트 비용인 셈입니다. 
+                <br><br>
+                Daily Pick Lab은 로또 번호를 분석하고 생성하는 과정 그 자체를 '게임'처럼 즐길 수 있도록 툴을 설계했습니다. 전략적으로 접근하되 과몰입을 피하고, 철저히 통계와 확률이라는 수치 안에서 건전하고 스마트한 즐거움을 경험해보시기 바랍니다.
+            </p>
         </article>
         
         <!-- FAQ Section -->
         <section class="mb-8">
-            <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4 px-2">자주 묻는 질문</h3>
+            <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4 px-2">로또 분석기 자주 묻는 질문 (FAQ)</h3>
             <div class="space-y-4">
                 <details class="group bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-4 open:ring-1 open:ring-green-400">
                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none">
-                        <span>이 생성기의 원리는 무엇인가요?</span>
+                        <span>Daily Pick Lab 생성기의 작동 원리는 무엇인가요? 반복문만 도나요?</span>
                         <span class="transition group-open:rotate-180">▼</span>
                     </summary>
                     <div class="text-gray-600 dark:text-gray-400 mt-3 text-sm leading-relaxed">
-                        사용자가 지정한 홀짝 비율을 기반으로, 전체 숫자 풀에서 무작위 추출을 수행합니다. 제외수로 지정한 번호는 풀에서 제거되며, 고정수는 반드시 포함됩니다.
+                        아닙니다. 단순한 무작위 셔플이 아니라 멀티-패스 필터링 방식을 사용합니다. 먼저 사용자가 입력한 '제외수'를 배열에서 완벽히 삭제하여 가용한 숫자 풀(Pool)을 형성합니다. 그 후 '고정수'를 배열의 첫 번째 값으로 시드(Seed) 처리하고, 남은 배열 안에서 사용자가 지정한 '홀짝 비율'이 정확히 일치할 때까지 가상 추첨 시뮬레이션을 반복하여 최종 검증된 결과만을 화면에 출력합니다.
                     </div>
                 </details>
                 <details class="group bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-4">
                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none">
-                        <span>고정수와 제외수는 어떻게 쓰나요?</span>
+                        <span>역대 당첨 번호를 입력하면 확률이 더 높아질까요?</span>
                         <span class="transition group-open:rotate-180">▼</span>
                     </summary>
                     <div class="text-gray-600 dark:text-gray-400 mt-3 text-sm leading-relaxed">
-                        이번 주에 꼭 나올 것 같은 번호가 있다면 고정수에 입력하고, 최근 너무 많이 나와서 안 나올 것 같은 번호는 제외수에 입력하여 확률을 높여보세요.
+                        이전 회차의 1등 당첨 번호 6개가 다음 회차에 토시 하나 틀리지 않고 똑같이 나올 확률은 처음 뽑는 확률(814만 분의 1)과 동일하게 낮습니다. 오히려 확률론적으로는 '연속 출현'보다는 '미출현 번호(Cold Numbers)'의 반등을 노리는 것이 통계적 안정감을 줄 수 있습니다. 따라서 지난주에 나온 번호 중 1~2개를 제외수에 설정하는 것도 고도화된 전략 중 하나입니다.
                     </div>
                 </details>
                 <details class="group bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-4">
                     <summary class="flex justify-between items-center font-bold cursor-pointer list-none">
-                        <span>당첨 확률을 높이는 방법?</span>
+                        <span>연속된 숫자(예: 1, 2, 3)가 나오는 것을 피해야 하나요?</span>
                         <span class="transition group-open:rotate-180">▼</span>
                     </summary>
                     <div class="text-gray-600 dark:text-gray-400 mt-3 text-sm leading-relaxed">
-                        수학적 확률은 동일하지만, 통계적으로 균형 잡힌 조합(홀짝 3:3 등)을 선택하는 것이 심리적 만족도를 높일 수 있습니다. 꾸준함이 가장 큰 전략입니다.
+                        실제 한국 로또 역사에서도 3개 이상의 연속된 숫자가 당첨 번호로 출현한 적이 있습니다. 수학적으로 1, 2, 3, 4, 5, 6이 나올 확률과 다른 무작위 번호 6개가 나올 확률은 완전히 동일합니다. 하지만 사람들은 본능적으로 패턴을 피하려 하기 때문에, 만약 1, 2, 3, 4, 5, 6이 1등 번호가 된다면 너무 많은 사람이 동일한 번호를 수동으로 적어 1등 당첨금을 세분화해서 나눠 가져야 하는 최악의 기대값(Expected Value) 상황이 펼쳐집니다. 따라서 인간이 직관적으로 '예쁘다'고 느끼는 연속 패턴이나 이등변 삼각형 형태의 마킹은 피하는 것이 수익률 방어에 유리합니다.
+                    </div>
+                </details>
+                <details class="group bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 p-4">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none">
+                        <span>로또 명당에서 구매하는 것이 실제로 더 잘 당첨되나요?</span>
+                        <span class="transition group-open:rotate-180">▼</span>
+                    </summary>
+                    <div class="text-gray-600 dark:text-gray-400 mt-3 text-sm leading-relaxed">
+                        결론부터 말씀드리면 개인의 확률은 어느 곳에서 사든 완벽히 똑같습니다. 소위 '명당'이라고 불리는 판매점들은 일반 판매점 대비 구매 건수(트래픽)가 수십 배에서 수백 배 많습니다. 모수가 거대하기 때문에 그 안에서 1등이 나올 빈도가 잦아지는 것일 뿐입니다. 긴장하며 멀리 있는 명당에 찾아가는 시간적, 물리적 비용 대신, 본인만의 조합 전략을 세워 편하게 구매하는 것이 훨씬 경제적입니다.
                     </div>
                 </details>
             </div>
@@ -274,6 +318,7 @@
             </div>
         </div>
     </footer>
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" integrity="sha384-TiCmbV6AUnR+N/zM0x2Y/eP5Pj1B20uowT246D2M8/NWeHovD6YyZ//M0Xk1A4hT" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 </html>

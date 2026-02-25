@@ -282,6 +282,8 @@ function drawCard() {
             resultArea.classList.remove('hidden');
             resultArea.classList.add('animate-fadeIn');
             drawBtn.disabled = false;
+            const shareContainer = document.getElementById('tarot-share-container');
+            if(shareContainer) { shareContainer.classList.remove('hidden'); shareContainer.classList.add('flex'); }
         }, 600); // Sync with CSS transition
     }, 200);
 }
@@ -380,6 +382,8 @@ function generateLotto() {
     currentLottoNumbers = finalNumbers;
     renderBalls(finalNumbers);
     document.getElementById('lotto-save-btn').classList.remove('hidden');
+    const shareContainer = document.getElementById('lotto-share-container');
+    if(shareContainer) { shareContainer.classList.remove('hidden'); shareContainer.classList.add('flex'); }
 }
 
 function renderBalls(nums) {
@@ -478,6 +482,8 @@ function recommendMbti() {
     resultArea.classList.remove('hidden');
     resultArea.classList.add('animate-pulse');
     setTimeout(()=> resultArea.classList.remove('animate-pulse'), 500);
+    const mbtiShareContainer = document.getElementById('mbti-share-container');
+    if(mbtiShareContainer) { mbtiShareContainer.classList.remove('hidden'); mbtiShareContainer.classList.add('flex'); }
 }
 
 
@@ -566,9 +572,133 @@ function endGameSuccess() {
         resultText.innerHTML = R.stats(diff, avg, reactionHistory.length, rank);
         resultText.classList.remove('hidden');
     }
+    const rShareContainer = document.getElementById('reaction-share-container');
+    if(rShareContainer) { rShareContainer.classList.remove('hidden'); rShareContainer.classList.add('flex'); }
 }
 
 function resetGame() {
     // Only resets state for loop, history persists within session
 }
+
+/* =========================================
+   6. SOCIAL SHARE FUNCTIONALITY
+   ========================================= */
+
+function getLang() {
+    return document.documentElement.lang || 'ko';
+}
+
+// Kakao SDK Init Placeholder
+if (typeof Kakao !== 'undefined' && !Kakao.isInitialized()) {
+    Kakao.init('c089c8172def97eb00c07217cae17495'); // placeholder key
+}
+
+function shareKakao(title, text, urlPath) {
+    const shareUrl = window.location.origin + urlPath;
+    if (typeof Kakao !== 'undefined' && Kakao.isInitialized()) {
+        Kakao.Share.sendDefault({
+            objectType: 'feed',
+            content: {
+                title: title,
+                description: text,
+                imageUrl: window.location.origin + '/assets/og-image.png',
+                link: {
+                    mobileWebUrl: shareUrl,
+                    webUrl: shareUrl,
+                },
+            },
+            buttons: [
+                {
+                    title: getLang() === 'ko' ? '결과 확인하기' : 'Check Results',
+                    link: {
+                        mobileWebUrl: shareUrl,
+                        webUrl: shareUrl,
+                    },
+                },
+            ],
+        });
+    } else {
+        alert(getLang() === 'ko' ? '카카오톡 공유 기능이 준비되지 않았습니다.' : 'Kakao Share feature is not ready.');
+    }
+}
+
+function shareTwitter(title, text, urlPath) {
+    const shareUrl = window.location.origin + urlPath;
+    const intentUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title + '\n' + text)}&url=${encodeURIComponent(shareUrl)}`;
+    window.open(intentUrl, '_blank', 'width=550,height=400');
+}
+
+function copyLink(title, text, urlPath) {
+    const shareUrl = window.location.origin + urlPath;
+    navigator.clipboard.writeText(`${title}\n${text}\n${shareUrl}`).then(() => {
+        const lang = getLang();
+        alert(lang === 'ko' ? '링크가 복사되었습니다!' : 'Link copied!');
+    }).catch(err => {
+        console.error('Failed to copy text: ', err);
+        const lang = getLang();
+        alert(lang === 'ko' ? '링크 복사에 실패했습니다.' : 'Failed to copy link.');
+    });
+}
+
+function bindShareButtons(prefix, getShareContent) {
+    const kakaoBtn = document.getElementById(`${prefix}-share-kakao`);
+    const twitterBtn = document.getElementById(`${prefix}-share-twitter`);
+    const linkBtn = document.getElementById(`${prefix}-share-link`);
+
+    if (kakaoBtn) kakaoBtn.addEventListener('click', () => {
+        const c = getShareContent(); shareKakao(c.title, c.text, c.path);
+    });
+    if (twitterBtn) twitterBtn.addEventListener('click', () => {
+        const c = getShareContent(); shareTwitter(c.title, c.text, c.path);
+    });
+    if (linkBtn) linkBtn.addEventListener('click', () => {
+        const c = getShareContent(); copyLink(c.title, c.text, c.path);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Lotto Share
+    bindShareButtons('lotto', () => {
+        const lang = getLang();
+        const title = lang === 'ko' ? '나의 행운의 로또 번호 ✨' : 'My Lucky Lotto Numbers ✨';
+        const text = lang === 'ko' 
+            ? `제가 방금 뽑은 로또 번호는 [${currentLottoNumbers.join(', ')}] 입니다! 통계 기반으로 여러분의 번호도 뽑아보세요.`
+            : `My lucky numbers are [${currentLottoNumbers.join(', ')}]! Try generating yours using statistics.`;
+        return { title, text, path: '/lotto.html' };
+    });
+
+    // MBTI Share
+    bindShareButtons('mbti', () => {
+        const lang = getLang();
+        const mbti = document.getElementById('mbti-select').value;
+        const title = lang === 'ko' ? `${mbti} 맞춤 추천 결과 🧭` : `${mbti} Recommendation Result 🧭`;
+        const text = lang === 'ko' 
+            ? `제 MBTI(${mbti})에 딱 맞는 결과를 추천받았어요! 여러분의 선택도 AI에게 맡겨보세요.`
+            : `I got a recommendation perfectly matching my MBTI(${mbti})! Leave your decisions to our AI.`;
+        return { title, text, path: '/mbti-food.html' };
+    });
+
+    // Tarot Share
+    bindShareButtons('tarot', () => {
+        const lang = getLang();
+        const cardNameEl = document.getElementById('tarot-name');
+        const cardName = cardNameEl ? cardNameEl.textContent : '';
+        const title = lang === 'ko' ? `오늘 나의 타로 카드: ${cardName} 🔮` : `My Tarot Card Today: ${cardName} 🔮`;
+        const text = lang === 'ko'
+            ? `오늘 저의 타로 점괘는 '${cardName}' 입니다! 지금 바로 여러분의 운명을 무료로 확인해보세요.`
+            : `My tarot reading today is '${cardName}'! Check your destiny for free now.`;
+        return { title, text, path: '/tarot.html' };
+    });
+
+    // Reaction Share
+    bindShareButtons('reaction', () => {
+        const lang = getLang();
+        const avg = reactionHistory.length ? Math.floor(reactionHistory.reduce((a,b)=>a+b, 0) / reactionHistory.length) : 0;
+        const title = lang === 'ko' ? `나의 반응속도 테스트 결과 ⚡` : `My Reaction Speed Test Result ⚡`;
+        const text = lang === 'ko'
+            ? `제 반응속도는 평균 ${avg}ms 입니다! 상위 1% 프로게이머 수준에 도전해보시겠어요?`
+            : `My average reaction time is ${avg}ms! Can you beat the top 1% pro gamer level?`;
+        return { title, text, path: '/reaction-test.html' };
+    });
+});
 
