@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initTabs() {
-    const tabs = ['luck', 'decision', 'ability', 'tarot'];
+    const tabs = ['luck', 'decision', 'ability', 'tarot', 'focus', 'security'];
     
     tabs.forEach(tab => {
         const btn = document.getElementById(`btn-${tab}`);
@@ -196,7 +196,7 @@ function initTabs() {
 }
 
 function switchTab(activeTab) {
-    const tabs = ['luck', 'decision', 'ability', 'tarot'];
+    const tabs = ['luck', 'decision', 'ability', 'tarot', 'focus', 'security'];
     
     // Reset all
     tabs.forEach(tab => {
@@ -702,3 +702,251 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+
+/* =========================================
+   7. Pomodoro Timer
+   ========================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    let pomodoroMode = 'work'; // 'work' or 'break'
+    let timeLeft = 25 * 60;
+    let totalTime = 25 * 60;
+    let timerInterval = null;
+    let isRunning = false;
+
+    const timeDisplay = document.getElementById('pomodoro-time');
+    const statusText = document.getElementById('pomodoro-status-text');
+    const progressCircle = document.getElementById('pomodoro-progress');
+    const startBtn = document.getElementById('pomodoro-start-btn');
+    const pauseBtn = document.getElementById('pomodoro-pause-btn');
+    const resetBtn = document.getElementById('pomodoro-reset-btn');
+    const modeWorkBtn = document.getElementById('pomodoro-mode-work');
+    const modeBreakBtn = document.getElementById('pomodoro-mode-break');
+
+    if (!timeDisplay) return; // Not on the pomodoro page
+
+    const circumference = 2 * Math.PI * 120; // 753.98
+
+    function updateDisplay() {
+        const mins = Math.floor(timeLeft / 60);
+        const secs = timeLeft % 60;
+        timeDisplay.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        const progress = timeLeft / totalTime;
+        const offset = circumference - (progress * circumference);
+        progressCircle.style.strokeDashoffset = offset;
+    }
+
+    function setMode(mode) {
+        pauseTimer();
+        pomodoroMode = mode;
+        if (mode === 'work') {
+            timeLeft = 25 * 60;
+            totalTime = 25 * 60;
+            statusText.textContent = getLang() === 'ko' ? '일할 시간입니다' : 'Time to work';
+            modeWorkBtn.classList.replace('bg-gray-100', 'bg-focus-500');
+            modeWorkBtn.classList.replace('text-gray-500', 'text-white');
+            modeBreakBtn.classList.replace('bg-focus-500', 'bg-gray-100');
+            modeBreakBtn.classList.replace('text-white', 'text-gray-500');
+            progressCircle.classList.replace('text-blue-500', 'text-focus-500');
+            startBtn.classList.replace('bg-blue-500', 'bg-focus-500');
+            startBtn.classList.replace('hover:bg-blue-600', 'hover:bg-focus-600');
+        } else {
+            timeLeft = 5 * 60;
+            totalTime = 5 * 60;
+            statusText.textContent = getLang() === 'ko' ? '휴식 시간입니다' : 'Time to break';
+            modeBreakBtn.classList.replace('bg-gray-100', 'bg-blue-500');
+            modeBreakBtn.classList.replace('text-gray-500', 'text-white');
+            modeWorkBtn.classList.replace('bg-focus-500', 'bg-gray-100');
+            modeWorkBtn.classList.replace('text-white', 'text-gray-500');
+            progressCircle.classList.replace('text-focus-500', 'text-blue-500');
+            startBtn.classList.replace('bg-focus-500', 'bg-blue-500');
+            startBtn.classList.replace('hover:bg-focus-600', 'hover:bg-blue-600');
+        }
+        updateDisplay();
+    }
+
+    function timerTick() {
+        if (timeLeft > 0) {
+            timeLeft--;
+            updateDisplay();
+        } else {
+            pauseTimer();
+            const lang = getLang();
+            if (pomodoroMode === 'work') {
+                alert(lang === 'ko' ? '25분 집중이 끝났습니다! 5분 휴식을 취하세요.' : '25min focus is over! Take a 5min break.');
+                setMode('break');
+            } else {
+                alert(lang === 'ko' ? '휴식이 끝났습니다! 다시 집중을 시작할까요?' : 'Break is over! Ready to focus again?');
+                setMode('work');
+            }
+        }
+    }
+
+    function startTimer() {
+        if (!isRunning) {
+            isRunning = true;
+            timerInterval = setInterval(timerTick, 1000);
+            startBtn.classList.add('hidden');
+            pauseBtn.classList.remove('hidden');
+        }
+    }
+
+    function pauseTimer() {
+        if (isRunning) {
+            isRunning = false;
+            clearInterval(timerInterval);
+            pauseBtn.classList.add('hidden');
+            startBtn.classList.remove('hidden');
+        }
+    }
+
+    function resetTimer() {
+        setMode(pomodoroMode);
+    }
+
+    startBtn.addEventListener('click', startTimer);
+    pauseBtn.addEventListener('click', pauseTimer);
+    resetBtn.addEventListener('click', resetTimer);
+    
+    modeWorkBtn.addEventListener('click', () => { if (pomodoroMode !== 'work') setMode('work'); });
+    modeBreakBtn.addEventListener('click', () => { if (pomodoroMode !== 'break') setMode('break'); });
+
+    updateDisplay();
+
+    // Pomodoro Share
+    if (typeof bindShareButtons !== 'undefined') {
+        bindShareButtons('pomodoro', () => {
+            const lang = getLang();
+            const title = lang === 'ko' ? '뽀모도로 타이머로 집중력 마스터 🍅' : 'Master Focus with Pomodoro Timer 🍅';
+            const text = lang === 'ko' 
+                ? `방금 데일리 픽 랩에서 25분 집중 사이클을 체험했어요! 뇌과학적인 도파민 분비 주기를 맞춰 최고의 작업 효율을 경험해보세요.`
+                : `I just completed a 25-minute focus cycle at Daily Pick Lab! Try this neuroscientific technique for peak productivity.`;
+            return { title, text, path: '/pomodoro.html' };
+        });
+    }
+});
+
+/* =========================================
+   8. Secure Password Generator
+   ========================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    const pwResult = document.getElementById('password-result');
+    const lengthSlider = document.getElementById('password-length-slider');
+    const lengthVal = document.getElementById('password-length-val');
+    const optUpper = document.getElementById('pw-opt-uppercase');
+    const optLower = document.getElementById('pw-opt-lowercase'); // Always checked
+    const optNumbers = document.getElementById('pw-opt-numbers');
+    const optSymbols = document.getElementById('pw-opt-symbols');
+    const generateBtn = document.getElementById('password-generate-btn');
+    const copyBtn = document.getElementById('password-copy-btn');
+    const strengthText = document.getElementById('password-strength-text');
+
+    if (!pwResult) return; // Not on the password page
+
+    const charsLower = "abcdefghijklmnopqrstuvwxyz";
+    const charsUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const charsNum = "0123456789";
+    const charsSym = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
+
+    function evaluateStrength(length, typesCount) {
+        const lang = getLang();
+        let strength = "";
+        let colorClass = "";
+        
+        if (length < 10) {
+            strength = lang === 'ko' ? "취약함" : "Weak";
+            colorClass = "text-red-500";
+        } else if (length < 14) {
+            if (typesCount >= 3) {
+                strength = lang === 'ko' ? "보통" : "Medium";
+                colorClass = "text-yellow-500";
+            } else {
+                strength = lang === 'ko' ? "취약함" : "Weak";
+                colorClass = "text-red-500";
+            }
+        } else {
+            if (typesCount >= 3) {
+                strength = lang === 'ko' ? "매우 강력함" : "Very Strong";
+                colorClass = "text-green-500";
+            } else {
+                strength = lang === 'ko' ? "강력함" : "Strong";
+                colorClass = "text-blue-500";
+            }
+        }
+
+        strengthText.textContent = strength;
+        strengthText.className = `mt-2 text-xs font-bold uppercase tracking-widest text-center shadow-text transition-colors ${colorClass}`;
+    }
+
+    function generatePassword() {
+        let length = parseInt(lengthSlider.value);
+        let charset = charsLower;
+        let typesCount = 1;
+
+        if (optUpper.checked) { charset += charsUpper; typesCount++; }
+        if (optNumbers.checked) { charset += charsNum; typesCount++; }
+        if (optSymbols.checked) { charset += charsSym; typesCount++; }
+
+        let password = "";
+        
+        // Ensure at least one of each selected type to strictly meet requirements
+        if (optUpper.checked) password += charsUpper[Math.floor(Math.random() * charsUpper.length)];
+        password += charsLower[Math.floor(Math.random() * charsLower.length)];
+        if (optNumbers.checked) password += charsNum[Math.floor(Math.random() * charsNum.length)];
+        if (optSymbols.checked) password += charsSym[Math.floor(Math.random() * charsSym.length)];
+
+        while (password.length < length) {
+            password += charset[Math.floor(Math.random() * charset.length)];
+        }
+
+        // Shuffle
+        password = password.split('').sort(() => 0.5 - Math.random()).join('');
+        
+        pwResult.textContent = password;
+        evaluateStrength(length, typesCount);
+        
+        // Reset copy button
+        copyBtn.innerHTML = '<span class="text-xl">📋</span> ' + (getLang() === 'ko' ? '복사하기' : 'Copy');
+        copyBtn.classList.remove('bg-green-100', 'text-green-700', 'dark:bg-green-900/40', 'dark:text-green-300');
+        copyBtn.classList.add('bg-security-100', 'text-security-700', 'dark:bg-security-900/40', 'dark:text-security-300');
+    }
+
+    lengthSlider.addEventListener('input', (e) => {
+        lengthVal.textContent = e.target.value;
+        generatePassword();
+    });
+
+    [optUpper, optNumbers, optSymbols].forEach(opt => {
+        opt.addEventListener('change', generatePassword);
+    });
+
+    generateBtn.addEventListener('click', generatePassword);
+
+    copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(pwResult.textContent).then(() => {
+            copyBtn.innerHTML = '<span class="text-xl">✅</span> ' + (getLang() === 'ko' ? '복사완료!' : 'Copied!');
+            copyBtn.classList.remove('bg-security-100', 'text-security-700', 'dark:bg-security-900/40', 'dark:text-security-300');
+            copyBtn.classList.add('bg-green-100', 'text-green-700', 'dark:bg-green-900/40', 'dark:text-green-300');
+            setTimeout(() => {
+                copyBtn.innerHTML = '<span class="text-xl">📋</span> ' + (getLang() === 'ko' ? '복사하기' : 'Copy');
+                copyBtn.classList.remove('bg-green-100', 'text-green-700', 'dark:bg-green-900/40', 'dark:text-green-300');
+                copyBtn.classList.add('bg-security-100', 'text-security-700', 'dark:bg-security-900/40', 'dark:text-security-300');
+            }, 2000);
+        });
+    });
+
+    // Initial generate
+    generatePassword();
+
+    // Password Share
+    if (typeof bindShareButtons !== 'undefined') {
+        bindShareButtons('password', () => {
+            const lang = getLang();
+            const title = lang === 'ko' ? '안전한 랜덤 비밀번호 생성 완료 🔐' : 'Secure Random Password Generated 🔐';
+            const text = lang === 'ko' 
+                ? `해커도 뚫지 못하는 강력하고 완벽한 비밀번호를 생성했어요. 데일리 픽 랩에서 1초만에 내 정보를 보호하세요!`
+                : `I just generated an unbreakable password. Protect your data in 1 second at Daily Pick Lab!`;
+            return { title, text, path: '/password.html' };
+        });
+    }
+});

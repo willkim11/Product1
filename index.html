@@ -182,18 +182,25 @@
             </div>
             
             <!-- Nav Tabs -->
-            <nav class="flex text-center text-sm font-bold text-gray-400 dark:text-gray-500">
-                <button id="btn-luck" class="flex-1 py-3 hover:bg-gray-50 dark:hover:bg-slate-700 nav-btn active-luck transition-colors" title="로또 번호 생성 - 상세 페이지 보기">
+            <nav class="flex text-center whitespace-nowrap overflow-x-auto no-scrollbar" text-sm font-bold text-gray-400 dark:text-gray-500">
+                <button id="btn-luck" class="flex-1 min-w-[80px] py-3 hover:bg-gray-50 dark:hover:bg-slate-700 nav-btn active-luck transition-colors" title="로또 번호 생성 - 상세 페이지 보기">
                     🍀 로또/운
                 </button>
-                <button id="btn-decision" class="flex-1 py-3 hover:bg-gray-50 dark:hover:bg-slate-700 nav-btn transition-colors" title="MBTI 음식 추천 - 상세 페이지 보기">
+                <button id="btn-decision" class="flex-1 min-w-[80px] py-3 hover:bg-gray-50 dark:hover:bg-slate-700 nav-btn transition-colors" title="MBTI 음식 추천 - 상세 페이지 보기">
                     🤔 결정/MBTI
                 </button>
-                <button id="btn-ability" class="flex-1 py-3 hover:bg-gray-50 dark:hover:bg-slate-700 nav-btn transition-colors" title="반응속도 테스트 - 상세 페이지 보기">
+                <button id="btn-ability" class="flex-1 min-w-[80px] py-3 hover:bg-gray-50 dark:hover:bg-slate-700 nav-btn transition-colors" title="반응속도 테스트 - 상세 페이지 보기">
                     ⚡ 반응속도
                 </button>
-                <button id="btn-tarot" class="flex-1 py-3 hover:bg-gray-50 dark:hover:bg-slate-700 nav-btn transition-colors" title="무료 타로점 - 상세 페이지 보기">
+                <button id="btn-tarot" class="flex-1 min-w-[80px] py-3 hover:bg-gray-50 dark:hover:bg-slate-700 nav-btn transition-colors" title="무료 타로점 - 상세 페이지 보기">
                     🔮 타로
+                </button>
+            
+                <button id="btn-focus" class="flex-1 py-3 hover:bg-gray-50 dark:hover:bg-slate-700 nav-btn transition-colors" title="뽀모도로 타이머 - 상세 페이지 보기">
+                    🍅 집중
+                </button>
+                <button id="btn-security" class="flex-1 py-3 hover:bg-gray-50 dark:hover:bg-slate-700 nav-btn transition-colors" title="안전한 비밀번호 생성 - 상세 페이지 보기">
+                    🔐 보안
                 </button>
             </nav>
         </div>
@@ -512,6 +519,73 @@
             </article>
         </section>
 
+        
+        <!-- ==================== FOCUS SECTION (POMODORO) ==================== -->
+        <section id="focus-section" class="tab-content hidden">
+            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 mb-8 border border-gray-100 dark:border-slate-700 transition">
+                <h2 class="text-lg font-bold mb-4 text-rose-500 dark:text-rose-400 flex items-center">
+                    <a href="pomodoro.html" class="hover:underline flex items-center">
+                        <span class="bg-rose-100 dark:bg-rose-900/30 p-1 rounded mr-2">🍅</span> 뽀모도로 타이머
+                    </a>
+                    <a href="pomodoro.html" class="text-xs text-gray-400 ml-2 hover:text-rose-500">→ 자세히</a>
+                </h2>
+                <div class="space-y-4 mb-6 text-center">
+                    <p class="text-sm text-gray-600 dark:text-gray-400">25분 몰입으로 집중력을 최고조로 끌어올리세요.</p>
+                    <a href="pomodoro.html" class="inline-block w-full bg-rose-500 hover:bg-rose-600 text-white font-bold py-3 rounded-lg transition shadow-md">
+                        타이머 시작하기
+                    </a>
+                </div>
+            </div>
+            
+            <article class="prose prose-sm dark:prose-invert max-w-none mb-8 text-gray-600 dark:text-gray-400">
+                <p>뽀모도로 타이머가 어떻게 뇌의 도파민 보상 회로를 해킹하는지 알아보세요</p>
+                <div class="mt-4 border-t border-gray-100 dark:border-slate-700 pt-4">
+                    <a href="blog/pomodoro-focus.html" class="group flex flex-col sm:flex-row bg-gray-50 dark:bg-slate-700/50 rounded-xl overflow-hidden hover:shadow-md transition border border-gray-200 dark:border-slate-600 !no-underline">
+                        <div class="w-full sm:w-1/3 min-h-[100px] bg-rose-100 dark:bg-rose-900/30 relative overflow-hidden flex-shrink-0 flex items-center justify-center">
+                            <span class="text-4xl transform group-hover:scale-110 transition duration-300">🍅</span>
+                        </div>
+                        <div class="p-4 flex flex-col justify-center flex-1">
+                            <span class="text-xs font-bold text-rose-600 dark:text-rose-400 mb-1">Dopamine & Focus</span>
+                            <h4 class="font-bold text-gray-800 dark:text-white mb-2 leading-tight group-hover:text-rose-600 dark:group-hover:text-rose-400 transition !mt-0 !mb-1">뇌과학적 관점의 도파민과 집중력 지속 메커니즘</h4>
+                        </div>
+                    </a>
+                </div>
+            </article>
+        </section>
+
+        <!-- ==================== SECURITY SECTION (PASSWORD) ==================== -->
+        <section id="security-section" class="tab-content hidden">
+            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 mb-8 border border-gray-100 dark:border-slate-700 transition">
+                <h2 class="text-lg font-bold mb-4 text-sky-500 dark:text-sky-400 flex items-center">
+                    <a href="password.html" class="hover:underline flex items-center">
+                        <span class="bg-sky-100 dark:bg-sky-900/30 p-1 rounded mr-2">🔐</span> 무작위 비밀번호 생성기
+                    </a>
+                    <a href="password.html" class="text-xs text-gray-400 ml-2 hover:text-sky-500">→ 자세히</a>
+                </h2>
+                <div class="space-y-4 mb-6 text-center">
+                    <p class="text-sm text-gray-600 dark:text-gray-400">브루트 포스 공격을 방어하는 완벽한 비밀번호를 생성하세요.</p>
+                    <a href="password.html" class="inline-block w-full bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 rounded-lg transition shadow-md">
+                        새 비밀번호 만들기
+                    </a>
+                </div>
+            </div>
+            
+            <article class="prose prose-sm dark:prose-invert max-w-none mb-8 text-gray-600 dark:text-gray-400">
+                <p>해커가 당신의 무작위 배열 암호를 뚫지 못하는 수학적 이유.</p>
+                <div class="mt-4 border-t border-gray-100 dark:border-slate-700 pt-4">
+                    <a href="blog/password-security.html" class="group flex flex-col sm:flex-row bg-gray-50 dark:bg-slate-700/50 rounded-xl overflow-hidden hover:shadow-md transition border border-gray-200 dark:border-slate-600 !no-underline">
+                        <div class="w-full sm:w-1/3 min-h-[100px] bg-sky-100 dark:bg-sky-900/30 relative overflow-hidden flex-shrink-0 flex items-center justify-center">
+                            <span class="text-4xl transform group-hover:scale-110 transition duration-300">🔐</span>
+                        </div>
+                        <div class="p-4 flex flex-col justify-center flex-1">
+                            <span class="text-xs font-bold text-sky-600 dark:text-sky-400 mb-1">Cyber Security</span>
+                            <h4 class="font-bold text-gray-800 dark:text-white mb-2 leading-tight group-hover:text-sky-600 dark:group-hover:text-sky-400 transition !mt-0 !mb-1">브루트 포스 방어 원리와 정보 보안의 역사</h4>
+                        </div>
+                    </a>
+                </div>
+            </article>
+        </section>
+
         <!-- Ad Slot Bottom -->
         <div class="adsense-slot rounded-xl">광고 영역 (하단)</div>
 
@@ -535,6 +609,8 @@
                     <ul class="text-xs text-slate-400 space-y-2">
                         <li><a href="mbti-food.html" class="hover:text-white transition">MBTI 음식 추천</a></li>
                         <li><a href="reaction-test.html" class="hover:text-white transition">반응속도 테스트</a></li>
+                        <li><a href="pomodoro.html" class="hover:text-white transition">뽀모도로 타이머</a></li>
+                        <li><a href="password.html" class="hover:text-white transition">비밀번호 생성기</a></li>
                     </ul>
                 </div>
             </div>

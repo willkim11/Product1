@@ -7,6 +7,8 @@
     --color-luck: #10b981;    /* Emerald 500 */
     --color-decision: #8b5cf6; /* Violet 500 */
     --color-ability: #f97316;  /* Orange 500 */
+    --color-focus: #f43f5e;    /* Rose 500 */
+    --color-security: #0ea5e9; /* Sky 500 */
 }
 
 body {
@@ -31,6 +33,14 @@ body {
 .nav-btn.active-ability {
     color: var(--color-ability);
     border-bottom-color: var(--color-ability);
+}
+.nav-btn.active-focus {
+    color: var(--color-focus);
+    border-bottom-color: var(--color-focus);
+}
+.nav-btn.active-security {
+    color: var(--color-security);
+    border-bottom-color: var(--color-security);
 }
 
 /* --- Section Transitions --- */
